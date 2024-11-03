@@ -5,14 +5,14 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <nav className="fixed w-full h-20 shadow-xl bg-white">
+    <nav className="fixed w-full h-16 shadow-xl bg-white">
       <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
         <Link href="/">
           <Image
             src="/Logo.png"
             alt="logo"
-            width="160"
-            height="60"
+            width="110"
+            height="20"
             className="cursor-pointer"
             priority
           />
