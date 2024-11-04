@@ -2,13 +2,13 @@ import { InfiniteMovingCards } from "./ui/MarqueeCards";
 
 function Home() {
   return (
-    <div className="flex flex-col p-5 pt-20 w-full">
-      <div className="flex flex-col items-center">
-        <h1 className="text-white text-[35px] font-semibold">
-          Bring your desired job market to you
+    <div className="flex flex-col p-5 pt-20 w-full dark:bg-[#1A1A19] bg-white dark:bg-grid-white/[0.1] bg-grid-black/[0.1] ">
+      <div className="flex flex-col items-center mt-12">
+        <h1 className="text-white text-[48px] font-semibold">
+          Bring the job market to you
         </h1>
-        <h2 className="text-white text-[30px] font-semibold text-center">
-          And track Jobs you've applied to
+        <h2 className="text-white text-[42px] font-semibold text-center">
+          Track every application effortlessly
         </h2>
         <p className="mt-5 text-white">
           The new standard for applying and tracking jobs find your dream career
@@ -18,14 +18,19 @@ function Home() {
           lorum ipsum so lador this is filler replace this with words later
           dalor
         </p>
-        <button className="mt-5 text-white p-2 font-medium w-[400px] rounded-md bg-[#FF6500]">
+        <button
+          className="mt-5 text-[#F6FCDF] p-2 font-medium w-[400px] rounded-md "
+          style={{
+            background: "linear-gradient(90deg, #31511E, #859F3D",
+          }}
+        >
           Start for Free
         </button>
         <p className="text-[15px] mt-2 text-[#fbfbfb65]">
           14-day trial, no card required. start in minuets
         </p>
       </div>
-      <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-[#141414] dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+      <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-transparent  items-center justify-center relative overflow-hidden">
         <InfiniteMovingCards
           items={testimonials}
           direction="left"
@@ -39,8 +44,6 @@ function Home() {
         <h2 className="text-white text-[26px] pl-4">
           look for the jobs your interested in
         </h2>
-        <div className="w-full max-w-[400px] h-[230px] mt-16 rounded-lg bg-[#414141]"></div>
-        <div className="w-full max-w-[400px] h-[230px] mt-16 rounded-lg bg-[#414141]"></div>
       </div>
     </div>
   );

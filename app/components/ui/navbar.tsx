@@ -5,11 +5,17 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <nav className="fixed w-full h-16 shadow-xl bg-white">
+    <nav
+      className="fixed z-50 w-full h-16 shadow-xl bg-[#31511E]"
+      style={{
+        background: "linear-gradient(80deg, #31511E, #859F3D",
+      }}
+    >
       <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
         <Link href="/">
           <Image
             src="/Logo.png"
+            hidden="true"
             alt="logo"
             width="110"
             height="20"
@@ -20,22 +26,22 @@ export default function Navbar() {
         <div>
           <ul className="hidden sm:flex">
             <Link href="/">
-              <li className="ml-10 uppercase hover:border-b text-xl text-black">
+              <li className="ml-10 uppercase hover:border-b text-xl text-white">
                 Home
               </li>
             </Link>
             <Link href="/about">
-              <li className="ml-10 uppercase hover:border-b text-xl text-black">
+              <li className="ml-10 uppercase hover:border-b text-xl text-white">
                 About Us
               </li>
             </Link>
             <Link href="/contact">
-              <li className="ml-10 uppercase hover:border-b text-xl text-black">
+              <li className="ml-10 uppercase hover:border-b text-xl text-white">
                 Contact
               </li>
             </Link>
             <Link href="/">
-              <li className="mx-10 uppercase hover:border-b text-xl text-black">
+              <li className="mx-10 uppercase hover:border-b text-xl text-white">
                 Tracker
               </li>
             </Link>
