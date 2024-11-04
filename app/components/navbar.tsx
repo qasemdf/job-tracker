@@ -24,12 +24,12 @@ export default function Navbar() {
                 Home
               </li>
             </Link>
-            <Link href="/about">
+            <Link href="/">
               <li className="ml-10 uppercase hover:border-b text-xl text-black">
                 About Us
               </li>
             </Link>
-            <Link href="/contact">
+            <Link href="/">
               <li className="ml-10 uppercase hover:border-b text-xl text-black">
                 Contact
               </li>

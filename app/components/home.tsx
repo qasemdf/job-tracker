@@ -1,3 +1,4 @@
+import LeverJobsClient from "../api/leverJobClient";
 function Home() {
   return (
     <div className="flex flex-col p-5 pt-20 w-full">
@@ -10,18 +11,18 @@ function Home() {
         </h2>
         <p className="mt-5 text-white">
           The new standard for applying and tracking jobs find your dream career
-          within minuets
+          within minutes
         </p>
         <p className="text-white">
-          lorum ipsum so lador this is filler replace this with words later
-          dalor
+          Lorem ipsum dolor sit amet, this is filler text to be replaced later.
         </p>
         <button className="mt-5 text-white p-2 font-medium w-[400px] rounded-md bg-[#FF6500]">
           Start for Free
         </button>
         <p className="text-[15px] mt-2 text-[#fbfbfb65]">
-          14-day trial, no card required. start in minuets
+          14-day trial, no card required. Start in minutes.
         </p>
+        <LeverJobsClient />
       </div>
       <div className="w-full flex gap-10 items-center justify-center mt-28">
         <div className="w-full max-w-48 h-72 rounded-lg bg-white"></div>
@@ -34,10 +35,10 @@ function Home() {
       </div>
       <div className="w-full p-12">
         <h2 className="text-white text-[26px]">
-          Search for in demand jobs in your area
+          Search for in-demand jobs in your area
         </h2>
         <h2 className="text-white text-[26px] pl-4">
-          look for the jobs your interested in
+          Look for the jobs you're interested in
         </h2>
         <div className="w-full max-w-[400px] h-[230px] mt-16 rounded-lg bg-[#414141]"></div>
         <div className="w-full max-w-[400px] h-[230px] mt-16 rounded-lg bg-[#414141]"></div>
