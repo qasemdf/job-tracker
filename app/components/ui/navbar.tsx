@@ -6,7 +6,7 @@ import React from "react";
 export default function Navbar() {
   return (
     <nav
-      className="fixed z-50 w-full h-16 shadow-xl bg-[#31511E]"
+      className="fixed z-50 w-full h-16 shadow-xl bg-[#31511E] "
       style={{
         background: "linear-gradient(80deg, #31511E, #859F3D",
       }}
@@ -15,7 +15,7 @@ export default function Navbar() {
         <Link href="/">
           <Image
             src="/Logo.png"
-            hidden="true"
+            hidden={true}
             alt="logo"
             width="110"
             height="20"
