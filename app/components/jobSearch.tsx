@@ -33,17 +33,19 @@ const JobSearchForm: React.FC = () => {
     <form
       onSubmit={handleSubmit}
       style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+      className="text-black"
     >
-      <label>
+      <label className="text-white text-[12px] font-semibold">
         Query:
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          className="text-black"
         />
       </label>
 
-      <label>
+      <label className="text-white text-[12px] font-semibold">
         Page:
         <input
           type="number"
@@ -51,10 +53,11 @@ const JobSearchForm: React.FC = () => {
           onChange={(e) => setPage(parseInt(e.target.value))}
           min="1"
           max="10"
+          className="text-black"
         />
       </label>
 
-      <label>
+      <label className="text-white text-[12px] font-semibold">
         Number of Pages:
         <input
           type="number"
@@ -62,10 +65,11 @@ const JobSearchForm: React.FC = () => {
           onChange={(e) => setNumPages(parseInt(e.target.value))}
           min="1"
           max="10"
+          className="text-black"
         />
       </label>
 
-      <label>
+      <label className="text-white text-[12px] font-semibold">
         Date Posted:
         <select
           value={datePosted}
@@ -74,6 +78,7 @@ const JobSearchForm: React.FC = () => {
               e.target.value as "all" | "today" | "3days" | "week" | "month"
             )
           }
+          className="text-black"
         >
           <option value="all">All</option>
           <option value="today">Today</option>
@@ -83,16 +88,22 @@ const JobSearchForm: React.FC = () => {
         </select>
       </label>
 
-      <label>
+      <label className="text-white text-[12px] font-semibold">
         Remote Jobs Only:
         <input
           type="checkbox"
           checked={remoteOnly}
           onChange={(e) => setRemoteOnly(e.target.checked)}
+          className="text-black"
         />
       </label>
 
-      <button type="submit">Search Jobs</button>
+      <button
+        type="submit"
+        className="mt-5 text-[#F6FCDF] p-2 font-medium w-[400px] rounded-md"
+      >
+        Search Jobs
+      </button>
     </form>
   );
 };
