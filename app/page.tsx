@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Home from "./components/home";
-import JobSearchForm from "./components/jobSearch";
+import Home from "./components/Home";
+import JobSearchForm from "./components/ui/jobSearch";
 export default function Main() {
   return (
     <div>

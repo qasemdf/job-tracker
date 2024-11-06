@@ -5,7 +5,7 @@ interface SearchParams {
   query: string;
   page?: number;
   num_pages?: number;
-  date_posted?: 'all' | 'today' | '3days' | 'week' | 'month';
+  date_posted?: "all" | "today" | "3days" | "week" | "month";
   remote_jobs_only?: boolean;
 }
 
@@ -29,6 +29,9 @@ export async function searchJobs(params: SearchParams) {
     }
 
     const data = await response.json();
+    //logging data response
+    console.log("API Response: ", data);
+
     if (data.status === "ERROR") {
       throw new Error(data.error.message);
     }
