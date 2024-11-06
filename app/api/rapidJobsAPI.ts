@@ -2,9 +2,7 @@ const RAPIDAPI_HOST = process.env.NEXT_PUBLIC_RAPIDAPI_HOST;
 const RAPIDAPI_KEY = process.env.NEXT_PUBLIC_RAPIDAPI_KEY;
 
 interface SearchParams {
-  jobTitle: string;
-  filler: "in";
-  state?: string;
+  query: string;
   page?: number;
   num_pages?: number;
   date_posted?: 'all' | 'today' | '3days' | 'week' | 'month';
