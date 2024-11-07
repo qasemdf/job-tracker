@@ -35,9 +35,9 @@ export default function Navbar() {
                 About Us
               </li>
             </Link>
-            <Link href="/contact">
+            <Link href="/jobSearch">
               <li className="ml-10 uppercase hover:border-b text-xl text-white">
-                Contact
+                Job Search
               </li>
             </Link>
             <Link href="/">
