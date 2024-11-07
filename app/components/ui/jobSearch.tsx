@@ -59,16 +59,22 @@ const JobSearchForm: React.FC = () => {
         style={{ display: "flex", flexDirection: "column", gap: "10px" }}
         className="text-black"
       >
-        <label className="text-white text-[12px] font-semibold">
-          Search{"    "}
+        <label className="flex justify-center text-white text-[12px] font-semibold">
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search for a job like frontend developer in Texas, USA"
-            className="text-black w-full max-w-[740px] h-7"
+            className="text-black w-full max-w-[740px] h-7 rounded-3xl relative p-4"
           />
         </label>
+
+        <button
+          type="submit"
+          className="mt-5 text-[#000] p-2 font-medium w-[400px] absolute right-14 top-[56px] z-50 rounded-md"
+        >
+          Search Jobs
+        </button>
 
         <label className="text-white text-[12px] font-semibold">
           Page:
@@ -124,12 +130,6 @@ const JobSearchForm: React.FC = () => {
             className="text-black"
           />
         </label>
-        <button
-          type="submit"
-          className="mt-5 text-[#F6FCDF] p-2 font-medium w-[400px] rounded-md"
-        >
-          Search Jobs
-        </button>
       </form>
       {error ? <p>{error}</p> : <JobResults results={results} />}
     </div>
