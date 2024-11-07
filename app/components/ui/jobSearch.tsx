@@ -59,36 +59,26 @@ const JobSearchForm: React.FC = () => {
         style={{ display: "flex", flexDirection: "column", gap: "10px" }}
         className="text-black"
       >
-        <label className="flex justify-center text-white text-[12px] font-semibold">
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search for a job like frontend developer in Texas, USA"
-            className="text-black w-full max-w-[740px] h-7 rounded-3xl relative p-4"
-          />
-        </label>
+        <div className="flex justify-center items-center ">
+          <label className="items-center relative w-full max-w-[1400px] mt-7 mb-7">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search for a job like frontend developer in Texas, USA"
+              className="text-black w-full h-10 rounded-3xl pl-4 pr-20"
+            />
 
-        <button
-          type="submit"
-          className="mt-5 text-[#000] p-2 font-medium w-[400px] absolute right-14 top-[56px] z-50 rounded-md"
-        >
-          Search Jobs
-        </button>
+            <button
+              type="submit"
+              className="absolute right-2 top-1/2 transform rounded-3xl -translate-y-1/2 text-[#000] p-2 font-medium bg-transparent rounded-md"
+            >
+              Search Jobs
+            </button>
+          </label>
+        </div>
 
-        <label className="text-white text-[12px] font-semibold">
-          Page:
-          <input
-            type="number"
-            value={page}
-            onChange={(e) => setPage(parseInt(e.target.value))}
-            min="1"
-            max="10"
-            className="text-black"
-          />
-        </label>
-
-        {
+        {/*
           <label className="text-white text-[12px] font-semibold">
             Number of Pages:
             <input
@@ -100,38 +90,61 @@ const JobSearchForm: React.FC = () => {
               className="text-black"
             />
           </label>
-        }
+        */}
 
-        <label className="text-white text-[12px] font-semibold">
-          Date Posted:
-          <select
-            value={datePosted}
-            onChange={(e) =>
-              setDatePosted(
-                e.target.value as "all" | "today" | "3days" | "week" | "month"
-              )
-            }
-            className="text-black"
+        <div className="flex gap-10 w-full justify-end pr-[480px]">
+          <label className="text-white text-[17px] font-semibold">
+            Date Posted{" "}
+            <select
+              value={datePosted}
+              onChange={(e) =>
+                setDatePosted(
+                  e.target.value as "all" | "today" | "3days" | "week" | "month"
+                )
+              }
+              className="text-black "
+            >
+              <option value="all">All</option>
+              <option value="today">Today</option>
+              <option value="3days">Last 3 Days</option>
+              <option value="week">Last Week</option>
+              <option value="month">Last Month</option>
+            </select>
+          </label>
+
+          <label className="text-white text-[17px] font-semibold">
+            Remote Jobs Only{" "}
+            <input
+              type="checkbox"
+              checked={remoteOnly}
+              onChange={(e) => setRemoteOnly(e.target.checked)}
+              className="text-black"
+            />
+          </label>
+        </div>
+
+        {error ? <p>{error}</p> : <JobResults results={results} />}
+
+        <div className="text-white text-[12px] font-semibold flex justify-center items-center gap-2 mt-12">
+          <button
+            type="submit"
+            onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+            className="bg-gray-300 text-black px-2 py-1 rounded-md "
           >
-            <option value="all">All</option>
-            <option value="today">Today</option>
-            <option value="3days">Last 3 Days</option>
-            <option value="week">Last Week</option>
-            <option value="month">Last Month</option>
-          </select>
-        </label>
+            prev
+          </button>
 
-        <label className="text-white text-[12px] font-semibold">
-          Remote Jobs Only:
-          <input
-            type="checkbox"
-            checked={remoteOnly}
-            onChange={(e) => setRemoteOnly(e.target.checked)}
-            className="text-black"
-          />
-        </label>
+          <button
+            type="submit"
+            onClick={() => setPage((prev) => Math.min(prev + 1, 10))}
+            className="bg-gray-300 text-black px-2 py-1 rounded-md"
+          >
+            next
+          </button>
+
+          <span className="text-[18px]">Page {page}</span>
+        </div>
       </form>
-      {error ? <p>{error}</p> : <JobResults results={results} />}
     </div>
   );
 };
