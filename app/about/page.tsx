@@ -1,3 +1,5 @@
+import { GridComponent } from "../components/ui/GridComponent";
+
 function About() {
   return (
     <div className="flex flex-col items-center w-full pt-20 text-white">
@@ -30,11 +32,14 @@ function About() {
           </div>
         </div>
       </section>
-      <section className="w-full h-[1700px] flex flex-col bg-[#eee] pt-10">
-        <h2 className="text-center text-[rgba(0,0,0,0.6)]">Our Values</h2>
-        <h2 className="text-[49px] text-center text-[#1A1A19]">
+      <section className="w-full h-[1700px] flex flex-col bg-[#3C3D37] pt-10">
+        <h2 className="text-center text-[rgba(255,255,255, 0.2)]">
+          Our Values
+        </h2>
+        <h2 className="text-[49px] text-center text-[#eee]">
           Our Values are the catalyst for all of our endeavors
         </h2>
+        <GridComponent />
       </section>
     </div>
   );
