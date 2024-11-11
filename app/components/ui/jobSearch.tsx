@@ -125,24 +125,24 @@ const JobSearchForm: React.FC = () => {
 
         {error ? <p>{error}</p> : <JobResults results={results} />}
 
-        <div className="text-white text-[12px] font-semibold flex justify-center items-center gap-2 mt-12">
-          <button
-            type="submit"
-            onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-            className="bg-gray-300 text-black px-2 py-1 rounded-md "
-          >
-            prev
-          </button>
-
-          <button
-            type="submit"
-            onClick={() => setPage((prev) => Math.min(prev + 1, 10))}
-            className="bg-gray-300 text-black px-2 py-1 rounded-md"
-          >
-            next
-          </button>
-
-          <span className="text-[18px]">Page {page}</span>
+        <div className="flex flex-col text-white text-[12px] font-semibold flex justify-center items-center gap-2 mt-12">
+          <span className="text-[25px]">Page {page}</span>
+          <div className="flex gap-4">
+            <button
+              type="submit"
+              onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+              className="bg-gray-300 text-lg font-semibold text-black px-5 py-1 rounded-md "
+            >
+              prev
+            </button>
+            <button
+              type="submit"
+              onClick={() => setPage((prev) => Math.min(prev + 1, 10))}
+              className="bg-gray-300 text-lg font-semibold text-black px-5 py-1 rounded-md"
+            >
+              next
+            </button>
+          </div>
         </div>
       </form>
     </div>

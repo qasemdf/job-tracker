@@ -1,6 +1,7 @@
 import { InfiniteMovingCards } from "./ui/MarqueeCards";
 import HpTitle from "./ui/HpTitle";
 import TextCard from "./ui/TextCard";
+import InfoGrid from "./ui/InfoGrid";
 
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
         <TextCard />
         <TextCard />
       </div>
+      <InfoGrid />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function ScrollContainerComponent() {
   return (
-    <div className="flex flex-col overflow-hidden h-[850px]">
+    <div className="flex flex-col overflow-hidden h-[850px] w-full max-w-[1850px]">
       <ContainerScroll titleComponent={<></>}>
         <Image
           src={`/linear.webp`}
