@@ -35,7 +35,10 @@ export const ContainerScroll = ({
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
-    <div className="h-[60rem] md:h-[80rem] flex md:p-5" ref={containerRef}>
+    <div
+      className="h-[60rem] md:h-[80rem] flex md:p-5 transition-all"
+      ref={containerRef}
+    >
       <div
         className="md:py-40 w-full relative"
         style={{

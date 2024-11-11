@@ -1,4 +1,7 @@
+"use client";
 import { GridComponent } from "../components/ui/GridComponent";
+
+import { TestComponent } from "../components/ui/test";
 
 function About() {
   return (
@@ -8,8 +11,8 @@ function About() {
           This was made by two very passionate developers
         </h1>
         <div className="flex justify-center gap-10 w-full">
-          <div className="flex justify-center items-center w-full max-w-[620px] h-96 rounded-lg bg-white"></div>
-          <div className="w-full max-w-[620px] h-96 rounded-lg bg-white"></div>
+          <TestComponent />
+          <TestComponent />
         </div>
         <div className="flex flex-col w-full justify-center items-center">
           <div className="flex gap-10 mt-44">
