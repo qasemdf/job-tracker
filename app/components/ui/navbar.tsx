@@ -6,10 +6,12 @@ import React from "react";
 export default function Navbar() {
   return (
     <nav
-      className="fixed z-50 w-full h-16 shadow-xl bg-[#31511E] "
-      style={{
-        background: "linear-gradient(80deg, #31511E, #859F3D",
-      }}
+      className="fixed z-50 w-full h-[77px] bg-[#1a1a19]"
+      style={
+        {
+          /*background: "linear-gradient(80deg, #31511E, #859F3D",*/
+        }
+      }
     >
       <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
         <Link href="/">
@@ -24,24 +26,24 @@ export default function Navbar() {
           />
         </Link>
         <div>
-          <ul className="hidden sm:flex">
+          <ul className="hidden sm:flex transition-all">
             <Link href="/">
-              <li className="ml-10 uppercase hover:border-b text-xl text-white">
+              <li className="ml-10 uppercase transition-all hover:border-b hover:text-2xl text-xl text-white leading-tight">
                 Home
               </li>
             </Link>
             <Link href="/about">
-              <li className="ml-10 uppercase hover:border-b text-xl text-white">
+              <li className="ml-10 uppercase transition-all hover:border-b hover:text-2xl text-xl text-white leading-tight">
                 About Us
               </li>
             </Link>
             <Link href="/jobSearch">
-              <li className="ml-10 uppercase hover:border-b text-xl text-white">
+              <li className="ml-10 uppercase transition-all hover:border-b hover:text-2xl text-xl text-white leading-tight">
                 Job Search
               </li>
             </Link>
             <Link href="/">
-              <li className="mx-10 uppercase hover:border-b text-xl text-white">
+              <li className="mx-10 uppercase transition-all hover:border-b hover:text-2xl text-xl text-white leading-tight">
                 Tracker
               </li>
             </Link>

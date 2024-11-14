@@ -1,23 +1,34 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+const FIREBASE_KEY = process.env.NEXT_PUBLIC_FIREBASE_KEY
+const FIREBASE_AUTHDOMAIN = process.env.NEXT_PUBLIC_FIREBASE_AUTHDOMAIN;
+const FIREBASE_STORAGEBUCKET = process.env.NEXT_PUBLIC_FIREBASE_STORAGEBUCKET;
+const FIREBASE_PROJECETID = process.env.NEXT_PUBLIC_FIREBASE_PROJECETID;
+const FIREBASE_MESSAGINGSENDERID = process.env.NEXT_PUBLIC_FIREBASE_MESSAGINGSENDERID;
+const FIREBASE_APPID = process.env.NEXT_PUBLIC_FIREBASE_APPID;
+const FIREBASE_MEASURMENTID = process.env.NEXT_PUBLIC_FIREBASE_MEASURMENTID;
+
+import { initializeApp, getApp, getApps } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC7yvbIb2VnpLRHGGGI-zrb1Qn-DFGn-Cs",
-  authDomain: "job-app-tracker-cf0f8.firebaseapp.com",
-  projectId: "job-app-tracker-cf0f8",
-  storageBucket: "job-app-tracker-cf0f8.firebasestorage.app",
-  messagingSenderId: "271956129526",
-  appId: "1:271956129526:web:2855d1dc4867982a4e9ed7",
-  measurementId: "G-BHL299HHWB"
+  apiKey: FIREBASE_KEY,
+  authDomain: FIREBASE_AUTHDOMAIN,
+  projectId: FIREBASE_PROJECETID,
+  storageBucket: FIREBASE_STORAGEBUCKET,
+  messagingSenderId: FIREBASE_MESSAGINGSENDERID,
+  appId: FIREBASE_APPID,
+  measurementId: FIREBASE_MEASURMENTID
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const app = !getApps.length ? initializeApp(firebaseConfig) : getApp();
+const auth = getAuth(app);
+const firestore = getFirestore(app)
 
-export default initializeApp;
+export {auth, firestore, app}
