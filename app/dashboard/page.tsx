@@ -41,7 +41,7 @@ const DashboardPage = () => {
   };
 
   const handleChangePassword = () => {
-    router.push("/passwordchange");
+    router.push("/changePassword");
   };
   if (loading) {
     return <p>Loading...</p>;
