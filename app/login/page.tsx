@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, firestore } from "@/firebase/clientApp";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import Link from "next/link";
+import { BackgroundBeams } from "../helper components/BackgrounBeamSetup";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -57,11 +58,12 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-20 bg-gradient from-gray-600 to-black flex justify-center min-h-screen">
-      <div className="p-5 border border-gray-300 rounded-lg max-w-md w-full bg-gray-800 shadow-lg">
-        <h2 className="text-white text-4xl font-medium text-center mb-8">
-          Login
-        </h2>
+    <div className="pt-20 flex justify-center min-h-screen">
+      <div className="p-5 rounded-lg max-w-md w-full z-50">
+        <h2 className="text-white text-3xl font-medium mb-3">Login</h2>
+        <p className="text-white mb-8">
+          Enter your email and password to login
+        </p>
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
             <label
@@ -76,7 +78,7 @@ const LoginPage: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="border-2 outline-none text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 bg-gray-700 placeholder-gray-400 text-white"
+              className="border-2 border-[rgba(215,215,215,0.4)] outline-none text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 bg-black placeholder-gray-400 text-white"
             />
           </div>
           <div>
@@ -92,24 +94,39 @@ const LoginPage: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="border-2 outline-none text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 bg-gray-700 placeholder-gray-400 text-white"
+              className="border-2 border-[rgba(215,215,215,0.4)] outline-none text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 bg-black placeholder-gray-400 text-white"
             />
           </div>
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <button
             type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-black hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Log In
           </button>
+
+          <label htmlFor="remember" className="mr-[40%] text-white">
+            <input type="checkbox" id="remember" className="mt-7" /> remember me
+          </label>
+          <span className="text-white">Forgot password?</span>
         </form>
-        <p className="text-gray-400 text-sm text-center mt-4">
+        <p className="text-gray-400 text-sm text-center mt-4 mb-7">
           Don&apos;t have an account?{" "}
           <Link href="/register" className="text-blue-500 hover:underline">
             Register Here
           </Link>
         </p>
+        <p className="mb-2 text-white">Or continue with</p>
+        <div className="flex gap-5 justify-center">
+          <button className="w-[220px] border border-[rgba(215,215,215,0.4)] rounded-lg h-[35px] bg-black text-white">
+            Google
+          </button>
+          <button className="w-[220px] border border-[rgba(215,215,215,0.4)] rounded-lg h-[35px] bg-black text-white">
+            Github
+          </button>
+        </div>
       </div>
+      <BackgroundBeams />
     </div>
   );
 };
