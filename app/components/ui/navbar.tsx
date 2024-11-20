@@ -42,7 +42,7 @@ export default function Navbar() {
                 Job Search
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/tracked-applications">
               <li className="mx-10 uppercase transition-all hover:border-b hover:text-2xl text-xl text-white leading-tight">
                 Tracker
               </li>
