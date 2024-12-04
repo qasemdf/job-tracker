@@ -2,7 +2,7 @@
 
 function TripleInfoCards() {
   return (
-    <div className="flex flex-col w-full gap-10 mt-36 text-white">
+    <div className="flex flex-col w-full gap-10 mt-36 text-[#ECDFCC]">
       <div className="w-[1000px] mx-auto text-center">
         <h1 className="text-4xl mb-10">
           Lorem ipsum dolor sit amet consectetur adipisicing fugit recusandae

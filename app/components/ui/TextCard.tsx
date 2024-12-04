@@ -2,7 +2,7 @@ function TextCard() {
   return (
     <div className="flex w-full items-center justify-center gap-16 ">
       <div className="max-w-[500px]">
-        <h1 className="text-[50px] font-semibold text-wrap text-[#eee]">
+        <h1 className="text-[50px] font-semibold text-wrap text-[#ECDFCC]">
           Lorem ipsum dolor sit amet, consectetur adipisicing
         </h1>
         <p className="mt-10 text-[17px] text-[#fbfbfb65]">
