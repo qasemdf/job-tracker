@@ -1,12 +1,22 @@
+import { IBM_Plex_Mono } from "next/font/google";
 import { ScrollContainerComponent } from "./ScollContainerComponent";
+
+import { iBM_Plex_Mono, poppins } from "@/app/fonts/Fonts";
+import { rubik_Spray_Paint } from "@/app/fonts/Fonts";
+import { montserrat } from "@/app/fonts/Fonts";
+import { inter } from "@/app/fonts/Fonts";
 
 function HpTitle() {
   return (
     <div className="flex flex-col items-center pt-16 pb-10 dark:bg-grid-white/[0.1] bg-grid-black/[0.1]">
-      <h1 className="text-[#ECDFCC] text-[48px] font-semibold">
+      <h1
+        className={` ${montserrat.className} text-[#ECDFCC] text-[48px] font-semibold`}
+      >
         Bring the job market to you
       </h1>
-      <h2 className="text-[#ECDFCC] text-[42px] font-semibold text-center">
+      <h2
+        className={`${montserrat.className} text-[#ECDFCC] text-[42px] font-semibold text-center`}
+      >
         Track every application effortlessly
       </h2>
       <p className="mt-5 text-[#ECDFCC]">

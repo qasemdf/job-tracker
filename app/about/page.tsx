@@ -5,7 +5,7 @@ import { TestComponent } from "../components/ui/test";
 
 function About() {
   return (
-    <div className="flex flex-col items-center w-full pt-20 text-white">
+    <div className="flex flex-col items-center w-full pt-20 text-[#ECDFCC]">
       <section className="w-full dark:bg-grid-white/[0.1] bg-grid-black/[0.1]">
         <h1 className="text-[45px] mb-36 mt-14 text-center">
           This was made by two very passionate developers
@@ -35,11 +35,11 @@ function About() {
           </div>
         </div>
       </section>
-      <section className="w-full h-[1700px] flex flex-col bg-[#3C3D37] pt-10">
+      <section className="w-full h-[1700px] flex flex-col bg-[#1E201E] pt-10">
         <h2 className="text-center text-[rgba(255,255,255, 0.2)]">
           Our Values
         </h2>
-        <h2 className="text-[49px] text-center text-[#eee]">
+        <h2 className="text-[49px] text-center text-[#ECDFCC]">
           Our Values are the catalyst for all of our endeavors
         </h2>
         <GridComponent />

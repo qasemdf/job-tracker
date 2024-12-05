@@ -4,6 +4,14 @@ import Navbar from "./components/ui/navbar";
 import Footer from "./components/ui/Footer";
 import "./globals.css";
 
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "500",
+});
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -27,9 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={poppins.className}>
         <Navbar />
         {children}
         <Footer />
