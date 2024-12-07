@@ -105,65 +105,64 @@ const TrackedApplicationsPage: React.FC = () => {
   }
 
   return (
-    <div className="pt-20 min-h-screen bg-gray-100 bg-gradient-to-b from-gray-600 to-black">
-      <nav className="bg-gray-800 p-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="text-white text-xl">Tracked Applications</div>
-          </div>
-        </div>
-      </nav>
-      <main className="flex flex-col items-center justify-center flex-grow mt-10">
-        <h1 className="text-4xl font-bold mb-6">Your Applications</h1>
-        <div className="w-3/4 mb-8">
+    <div className="pt-20 h-screen bg-[#1E201E] ">
+      <main className="flex flex-col items-center flex-grow mt-10">
+        <h1 className="text-4xl font-bold mb-6 text-[#ECDFCC]">
+          Your Applications
+        </h1>
+        <div className="container mb-8">
           {applications.map((app) => (
             <div
               key={app.id}
-              className="bg-white p-4 rounded shadow mb-4 flex justify-between"
+              className="bg-[#3C3D37] mx-auto max-w-[700px] p-4 rounded shadow mb-4 flex justify-between"
             >
               <div>
-                <h2 className="text-lg font-bold">{app.companyName}</h2>
-                <p>{app.position}</p>
-                <p>{app.applicationDate}</p>
+                <h2 className="text-lg font-bold text-[#ECDFCC]">
+                  {app.companyName}
+                </h2>
+                <p className="text-[#ECDFCC]">{app.position}</p>
+                <p className="text-[#ecdfcc69]">{app.applicationDate}</p>
               </div>
             </div>
           ))}
         </div>
-        <div className="w-3/4">
-          <h2 className="text-2xl font-bold mb-4">Add New Application</h2>
-          <div className="mb-4">
+        <div className="container flex flex-col justify-center items-center">
+          <h2 className="text-2xl font-bold mb-4 text-[#ECDFCC]">
+            Add New Application
+          </h2>
+          <div className="w-full max-w-[700px] mb-4">
             <input
               type="text"
               name="companyName"
               value={newApplication.companyName}
               onChange={handleInputChange}
               placeholder="Company Name"
-              className="w-full p-2 border rounded"
+              className="w-full max-w-[700px] p-2 border rounded bg-[#3C3D37] text-[#ECDFCC] placeholder-[#ECDFCC]"
             />
           </div>
-          <div className="mb-4">
+          <div className="w-full max-w-[700px] mb-4">
             <input
               type="text"
               name="position"
               value={newApplication.position}
               onChange={handleInputChange}
               placeholder="Position"
-              className="w-full p-2 border rounded"
+              className="w-full max-w-[700px]  p-2 border rounded bg-[#3C3D37] text-[#ECDFCC] placeholder-[#ECDFCC]"
             />
           </div>
-          <div className="mb-4">
+          <div className="w-full max-w-[700px] mb-7">
             <input
               type="date"
               name="applicationDate"
               value={newApplication.applicationDate}
               onChange={handleInputChange}
               placeholder="Application Date"
-              className="w-full p-2 border rounded"
+              className="w-full max-w-[700px]  p-2 border rounded bg-[#3C3D37] text-[#ECDFCC]"
             />
           </div>
           <button
             onClick={handleAddApplication}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="px-4 py-2 bg-[#697565] text-[#ECDFCC] rounded hover:bg-[#69756598]"
           >
             Add Application
           </button>

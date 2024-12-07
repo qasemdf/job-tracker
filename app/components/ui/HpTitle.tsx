@@ -1,29 +1,31 @@
-import { IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Poppins } from "next/font/google";
 import { ScrollContainerComponent } from "./ScollContainerComponent";
 
 import { iBM_Plex_Mono, poppins } from "@/app/fonts/Fonts";
 import { rubik_Spray_Paint } from "@/app/fonts/Fonts";
 import { montserrat } from "@/app/fonts/Fonts";
 import { inter } from "@/app/fonts/Fonts";
+import { quicksand } from "@/app/fonts/Fonts";
+import { staatliches } from "@/app/fonts/Fonts";
 
 function HpTitle() {
   return (
     <div className="flex flex-col items-center pt-16 pb-10 dark:bg-grid-white/[0.1] bg-grid-black/[0.1]">
       <h1
-        className={` ${montserrat.className} text-[#ECDFCC] text-[48px] font-semibold`}
+        className={` ${staatliches.className} text-[#ECDFCC] text-[58px] font-semibold`}
       >
         Bring the job market to you
       </h1>
       <h2
-        className={`${montserrat.className} text-[#ECDFCC] text-[42px] font-semibold text-center`}
+        className={`${staatliches.className} text-[#ECDFCC] text-[58px] font-semibold text-center`}
       >
         Track every application effortlessly
       </h2>
-      <p className="mt-5 text-[#ECDFCC]">
+      <p className={` ${quicksand.className} mt-5 text-[#ECDFCC]`}>
         The new standard for applying and tracking jobs find your dream career
         within minuets
       </p>
-      <p className="text-[#ECDFCC]">
+      <p className={` ${quicksand.className} text-[#ECDFCC]`}>
         lorum ipsum so lador this is filler replace this with words later dalor
       </p>
       <a href="/register">
@@ -36,7 +38,9 @@ function HpTitle() {
           Start for Free
         </button>
       </a>
-      <p className="text-[15px] mt-2 text-[#fbfbfb65]">
+      <p
+        className={` ${quicksand.className} text-[15px] mt-2 text-[#fbfbfb65]`}
+      >
         14-day trial, no card required. start in minuets
       </p>
       <ScrollContainerComponent />

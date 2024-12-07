@@ -4,24 +4,7 @@ import Navbar from "./components/ui/navbar";
 import Footer from "./components/ui/Footer";
 import "./globals.css";
 
-import { Poppins } from "next/font/google";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  display: "swap",
-  weight: "500",
-});
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { poppins } from "./fonts/Fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",

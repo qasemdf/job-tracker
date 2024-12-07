@@ -3,6 +3,8 @@ import { IBM_Plex_Mono } from "next/font/google";
 import { Rubik_Spray_Paint } from "next/font/google";
 import { Montserrat } from "next/font/google";
 import { Inter } from "next/font/google";
+import { Quicksand } from "next/font/google";
+import { Staatliches } from "next/font/google";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -32,4 +34,16 @@ export const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   weight: "600",
+});
+
+export const quicksand = Quicksand({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "600",
+});
+
+export const staatliches = Staatliches({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
 });

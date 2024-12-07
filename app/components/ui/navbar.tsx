@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+import { staatliches } from "@/app/fonts/Fonts";
+
 export default function Navbar() {
   return (
     <nav
@@ -26,7 +28,9 @@ export default function Navbar() {
           />
         </Link>
         <div>
-          <ul className="hidden sm:flex transition-all">
+          <ul
+            className={` ${staatliches.className} tracking-widest hidden sm:flex transition-all`}
+          >
             <Link href="/">
               <li className="ml-10 uppercase transition-all hover:border-b hover:text-2xl text-xl text-white leading-tight">
                 Home
