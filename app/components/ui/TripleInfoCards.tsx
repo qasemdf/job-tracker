@@ -72,7 +72,7 @@ function TripleInfoCards() {
           <p className={` ${quicksand.className}`}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iste
             nobis incidunt quis fugiat sequi ut fugit recusandae corrupti
-            dignissimos?
+            dignissimos
           </p>
         </div>
       </div>
