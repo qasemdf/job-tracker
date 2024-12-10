@@ -12,8 +12,7 @@ function TripleInfoCards() {
         <h1
           className={` ${staatliches.className} tracking-wide text-4xl mb-10`}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing fugit recusandae
-          corrupti dignissimos?
+          Search, Apply, and Track Simplify Your Job Hunt in Three Easy Steps
         </h1>
       </div>
       <div className="flex gap-10 justify-center items-center w-full">
@@ -30,9 +29,9 @@ function TripleInfoCards() {
             Search
           </h2>
           <p className={` ${quicksand.className}`}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iste
-            nobis incidunt quis fugiat sequi ut fugit recusandae corrupti
-            dignissimos?
+            Effortlessly find the jobs that align with your skills and
+            aspirations. Use filters to refine your search by location,
+            industry, or role to discover opportunities that matter most to you.
           </p>
         </div>
       </div>
@@ -50,9 +49,9 @@ function TripleInfoCards() {
             Apply
           </h2>
           <p className={` ${quicksand.className}`}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iste
-            nobis incidunt quis fugiat sequi ut fugit recusandae corrupti
-            dignissimos?
+            Quickly explore application links and resources for your selected
+            jobs. We guide you to the right places, ensuring you’re always ready
+            to take the next step toward your dream career.
           </p>
         </div>
       </div>
@@ -70,9 +69,10 @@ function TripleInfoCards() {
             Track
           </h2>
           <p className={` ${quicksand.className}`}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iste
-            nobis incidunt quis fugiat sequi ut fugit recusandae corrupti
-            dignissimos
+            Stay on top of your job search by saving and organizing your
+            favorite listings. Monitor application deadlines and revisit key
+            opportunities whenever you need to, ensuring no opportunity slips
+            through the cracks.
           </p>
         </div>
       </div>
