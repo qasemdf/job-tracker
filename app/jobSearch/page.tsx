@@ -95,7 +95,7 @@ const JobSearchPage = () => {
         className="text-black"
       >
         <div className="flex justify-center items-center ">
-          <label className="items-center relative w-full max-w-[1400px] mt-7 mb-7">
+          <label className="items-center relative w-full max-w-[1400px] mt-10 mb-7">
             <input
               type="text"
               value={query}
@@ -161,19 +161,19 @@ const JobSearchPage = () => {
         {error ? <p>{error}</p> : <JobResults results={results} />}
 
         <div className="flex flex-col text-white text-[12px] font-semibold flex justify-center items-center gap-2 mt-12">
-          <span className="text-[25px]">Page {page}</span>
-          <div className="flex gap-4">
+          <span className="text-[25px] text-[#ECDFCC]">Page {page}</span>
+          <div className="flex gap-4 mb-5">
             <button
               type="submit"
               onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-              className="bg-gray-300 text-lg font-semibold text-black px-5 py-1 rounded-md "
+              className="bg-[#697565] text-[#ECDFCC] text-lg font-semibold px-5 py-1 rounded-md "
             >
               prev
             </button>
             <button
               type="submit"
               onClick={() => setPage((prev) => Math.min(prev + 1, 10))}
-              className="bg-gray-300 text-lg font-semibold text-black px-5 py-1 rounded-md"
+              className="bg-[#697565] text-[#ECDFCC] text-lg font-semibold px-5 py-1 rounded-md"
             >
               next
             </button>

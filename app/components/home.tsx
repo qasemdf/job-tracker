@@ -6,7 +6,7 @@ import TripleInfoCards from "./ui/TripleInfoCards";
 
 function Home() {
   return (
-    <div className="flex flex-col p-5 pt-20 w-full dark:bg-[#1A1A19] bg-white ">
+    <div className="flex flex-col p-5 pt-20 w-full dark:bg-[#1E201E] bg-white ">
       <HpTitle />
       <div className="h-[20rem] rounded-md flex flex-col antialiased bg-white dark:bg-transparent  items-center justify-center relative overflow-hidden">
         <InfiniteMovingCards
@@ -33,26 +33,27 @@ const testimonials = [
   },
   {
     quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
-  },
-  {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+      "This software made my job search so much easier. The tailored recommendations saved me hours, and I landed a new role within two weeks. Highly recommend!",
+    name: "James R",
+    title: "amazing software!",
   },
   {
     quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+      "The interface is clean and user-friendly, but I wish there were more job options in my field. Still, it’s worth a try for its efficiency.",
+    name: "Sarah M",
+    title: "Great interface",
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+      "It’s a solid platform, but the notifications are a bit overwhelming. I appreciate the detailed job matches, though!",
+    name: "Liam P",
+    title: "Solid overall",
+  },
+  {
+    quote:
+      "Honestly, I was skeptical at first, but the software helped me land a dream job in under a month. Totally worth it!",
+    name: "Give it a chance",
+    title: "Ava G",
   },
 ];
 

@@ -24,7 +24,7 @@ const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
           <div
             key={job.job_id}
             className=" w-full max-w-[650px] flex gap-5 text-white p-12 rounded-xl"
-            style={{ background: "linear-gradient(260deg, #31511E, #859F3D" }}
+            style={{ background: "linear-gradient(260deg, #3C3D37, #1E201E" }}
           >
             <div>
               {job.employer_logo ? (
