@@ -48,32 +48,25 @@ const DashboardPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 bg-gradient-to-b from-gray-600 to-black">
-      <nav className="bg-gray-800 p-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <div className="text-white text-xl"> Dashboard</div>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-[#1E201E]">
+      <div className="text-white text-xl p-8"></div>
+
       <main className="flex flex-col items-center justify-center flex-grow mt-10">
         {userName && (
-          <h1 className="text-4xl font-bold mb-6 ml-10 ">
+          <h1 className="text-4xl text-[#ECDFCC] font-bold mb-6 ml-10 ">
             Welcome, {userName}!
           </h1>
         )}
         <div className="space-x-4">
           <button
             onClick={handleLogout}
-            className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+            className="px-4 py-2 bg-[#697565] text-[#ECDFCC] rounded-md hover:bg-[#6975656c]"
           >
             Logout
           </button>
           <button
             onClick={handleChangePassword}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-red-700"
+            className="px-4 py-2 bg-[#697565] text-[#ECDFCC] rounded-md hover:bg-[#69756598]"
           >
             Change Password
           </button>

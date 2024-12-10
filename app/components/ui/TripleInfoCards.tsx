@@ -1,7 +1,5 @@
 "use client";
 
-import Video from "@/app/Extra Components/Video";
-
 import { quicksand } from "@/app/fonts/Fonts";
 import { staatliches } from "@/app/fonts/Fonts";
 
