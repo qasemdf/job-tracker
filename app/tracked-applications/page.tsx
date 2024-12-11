@@ -5,6 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, firestore } from "@/firebase/clientApp";
 import {
   doc,
+  deleteDoc,
   getDoc,
   collection,
   query,
@@ -17,6 +18,7 @@ interface JobApplication {
   companyName: string;
   position: string;
   applicationDate: string;
+  description: string;
 }
 
 const TrackedApplicationsPage: React.FC = () => {
@@ -27,6 +29,7 @@ const TrackedApplicationsPage: React.FC = () => {
     companyName: "",
     position: "",
     applicationDate: "",
+    description: "",
   });
   const router = useRouter();
 
@@ -74,7 +77,8 @@ const TrackedApplicationsPage: React.FC = () => {
     if (
       !newApplication.companyName ||
       !newApplication.position ||
-      !newApplication.applicationDate
+      !newApplication.applicationDate ||
+      !newApplication.description
     ) {
       alert("Please fill out all fields.");
       return;
@@ -94,9 +98,30 @@ const TrackedApplicationsPage: React.FC = () => {
         { id: Date.now().toString(), ...newApplication },
       ]);
 
-      setNewApplication({ companyName: "", position: "", applicationDate: "" });
+      setNewApplication({
+        companyName: "",
+        position: "",
+        description: "",
+        applicationDate: "",
+      });
     } catch (error) {
       console.error("Error adding application:", error);
+    }
+  };
+  const handleDeleteApplication = async (id: string) => {
+    try {
+      const applicationDoc = doc(
+        firestore,
+        "users",
+        user.uid,
+        "applications",
+        id
+      );
+      await deleteDoc(applicationDoc);
+
+      setApplications((prev) => prev.filter((app) => app.id !== id));
+    } catch (error) {
+      console.error("Error deleting application:", error);
     }
   };
 
@@ -121,7 +146,19 @@ const TrackedApplicationsPage: React.FC = () => {
                   {app.companyName}
                 </h2>
                 <p className="text-[#ECDFCC]">{app.position}</p>
+                <p className="text-[#ECDFCC]">{app.description}</p>
                 <p className="text-[#ecdfcc69]">{app.applicationDate}</p>
+              </div>
+              <div className="flex flex-col space-y-2">
+                <button
+                  onClick={() => handleDeleteApplication(app.id)}
+                  className="w-32 h-12 bg-[#a83232] text-[#ECDFCC] rounded-lg font-medium hover:bg-red-700 focus:ring focus:ring-red-500"
+                >
+                  Delete
+                </button>
+                <button className="w-32 h-12  bg-[#201ea6] text-[#ECDFCC] rounded-lg font-medium hover:bg-red-700 focus:ring focus:ring-red-500">
+                  Edit
+                </button>
               </div>
             </div>
           ))}
@@ -147,6 +184,16 @@ const TrackedApplicationsPage: React.FC = () => {
               value={newApplication.position}
               onChange={handleInputChange}
               placeholder="Position"
+              className="w-full max-w-[700px]  p-2 border rounded bg-[#3C3D37] text-[#ECDFCC] placeholder-[#ECDFCC]"
+            />
+          </div>
+          <div className="w-full max-w-[700px] mb-4">
+            <input
+              type="text"
+              name="description"
+              value={newApplication.description}
+              onChange={handleInputChange}
+              placeholder="Description"
               className="w-full max-w-[700px]  p-2 border rounded bg-[#3C3D37] text-[#ECDFCC] placeholder-[#ECDFCC]"
             />
           </div>
