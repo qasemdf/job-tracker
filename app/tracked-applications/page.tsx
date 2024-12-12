@@ -109,19 +109,24 @@ const TrackedApplicationsPage: React.FC = () => {
     }
   };
   const handleDeleteApplication = async (id: string) => {
-    try {
-      const applicationDoc = doc(
-        firestore,
-        "users",
-        user.uid,
-        "applications",
-        id
-      );
-      await deleteDoc(applicationDoc);
+    const confirmed = window.confirm("Are you sure you want to delete?");
+    if (confirmed) {
+      try {
+        const applicationDoc = doc(
+          firestore,
+          "users",
+          user.uid,
+          "applications",
+          id
+        );
+        await deleteDoc(applicationDoc);
 
-      setApplications((prev) => prev.filter((app) => app.id !== id));
-    } catch (error) {
-      console.error("Error deleting application:", error);
+        setApplications((prev) => prev.filter((app) => app.id !== id));
+      } catch (error) {
+        console.error("Error deleting application:", error);
+      }
+    } else {
+      console.log("Canceled");
     }
   };
 
