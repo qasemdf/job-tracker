@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="flex w-full h-[200px] absolute justify-evenly p-10 bg-[#373d3c]">
+    <footer className="flex w-full h-[200px] justify-evenly bg-[#373d3c] pt-5 ">
       <div className="flex flex-col gap-2">
         <h1 className="text-white text-2xl">Track Me</h1>
         <p className="text-[#fbfbfb65]">all rights reserved</p>

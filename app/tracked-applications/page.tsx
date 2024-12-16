@@ -135,7 +135,7 @@ const TrackedApplicationsPage: React.FC = () => {
   }
 
   return (
-    <div className="pt-20 h-screen bg-[#1E201E] ">
+    <div className="pt-20 pb-16 flex-grow bg-[#1E201E] ">
       <main className="flex flex-col items-center flex-grow mt-10">
         <h1 className="text-4xl font-bold mb-6 text-[#ECDFCC]">
           Your Applications
