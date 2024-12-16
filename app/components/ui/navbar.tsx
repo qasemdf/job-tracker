@@ -3,13 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { staatliches } from "@/app/fonts/Fonts";
-import { main } from "framer-motion/client";
+import { useNightMode } from "../home";
 
-export default function Navbar(props) {
+import { staatliches } from "@/app/fonts/Fonts";
+
+interface NavbarProps {
+  nightMode: () => void;
+}
+
+export default function Navbar() {
+  const { nightMode, toggleNightMode } = useNightMode() || {};
+
   return (
     <main className="flex justify-center">
-      <nav className="flex fixed z-50 justify-center items-center container mt-2 rounded-2xl max-w-[800px] h-[60px] bg-[#1E201E]">
+      <nav className="flex fixed z-50 justify-center items-center container mt-2 rounded-2xl max-w-[800px] h-[60px] bg-[#1E201E] drop-shadow-2xl">
         <div className="flex justify-center items-center container w-full ">
           <Link href="/">
             <Image
@@ -94,19 +101,32 @@ export default function Navbar(props) {
                 </li>
               </a>
               <a className="group relative w-[80px]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="28"
-                  height="28"
-                  viewBox="0 0 28 28"
-                  className="cursor-pointer"
-                  fill="white"
-                  onClick={props.nightMode}
-                >
-                  <path d="M12 11.807A9.002 9.002 0 0 1 10.049 2a9.942 9.942 0 0 0-5.12 2.735c-3.905 3.905-3.905 10.237 0 14.142 3.906 3.906 10.237 3.905 14.143 0a9.946 9.946 0 0 0 2.735-5.119A9.003 9.003 0 0 1 12 11.807z"></path>
-                </svg>
+                <button onClick={nightMode}>
+                  {toggleNightMode ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 28 28"
+                      className="cursor-pointer"
+                      fill="white"
+                    >
+                      <path d="M12 11.807A9.002 9.002 0 0 1 10.049 2a9.942 9.942 0 0 0-5.12 2.735c-3.905 3.905-3.905 10.237 0 14.142 3.906 3.906 10.237 3.905 14.143 0a9.946 9.946 0 0 0 2.735-5.119A9.003 9.003 0 0 1 12 11.807z"></path>
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="white"
+                    >
+                      <path d="M6.995 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007-2.246-5.007-5.007-5.007S6.995 9.239 6.995 12zM11 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2H2zm17 0h3v2h-3zM5.637 19.778l-1.414-1.414 2.121-2.121 1.414 1.414zM16.242 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.344 7.759 4.223 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"></path>
+                    </svg>
+                  )}
+                </button>
                 <li className="opacity-0 top-2 group-hover:opacity-100 group-hover:top-6 absolute -left-[26px] transition-all">
-                  light mode
+                  {toggleNightMode ? "dark mode" : "light mode"}
                 </li>
               </a>
             </ul>
