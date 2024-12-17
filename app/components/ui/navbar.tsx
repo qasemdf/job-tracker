@@ -15,15 +15,15 @@ export default function Navbar() {
   const { nightMode, toggleNightMode } = useNightMode() || {};
 
   return (
-    <main className="flex justify-center">
-      <nav className="flex fixed z-50 justify-center items-center container mt-2 rounded-2xl max-w-[800px] h-[60px] bg-[#1E201E] drop-shadow-2xl">
-        <div className="flex justify-center items-center container w-full ">
+    <main className="flex justify-center z-50">
+      <div className="fixed left-1/2 -translate-x-1/2 rounded-2xl bg-[#202220] h-[79px] z-40 w-full max-w-[820px]"></div>
+      <nav className="flex z-50 fixed w-full items-center mt-2 rounded-2xl max-w-[800px] h-16 bg-[#242524] drop-shadow-2xl">
+        <div className="flex items-center z-50 w-full">
           <Link href="/">
             <Image
-              src="/Logo.png"
-              hidden={true}
+              src="/Lunar.png"
               alt="logo"
-              width="110"
+              width="60"
               height="20"
               className="cursor-pointer"
               priority
@@ -41,8 +41,8 @@ export default function Navbar() {
               <Link href="/about" className="group relative w-[80px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="28"
+                  height="28"
                   viewBox="0 0 24 24"
                   fill="white"
                 >
@@ -56,8 +56,8 @@ export default function Navbar() {
               <Link href="/jobSearch" className="group relative w-[80px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="28"
+                  height="28"
                   viewBox="0 0 24 24"
                   fill="white"
                 >
@@ -73,8 +73,8 @@ export default function Navbar() {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="28"
+                  height="28"
                   viewBox="0 0 24 24"
                   fill="white"
                 >
@@ -88,8 +88,8 @@ export default function Navbar() {
               <a href="/dashboard" className="group relative w-[80px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
+                  width="28"
+                  height="28"
                   viewBox="0 0 24 24"
                   fill="white"
                   className="cursor-pointer group"
@@ -107,7 +107,7 @@ export default function Navbar() {
                       xmlns="http://www.w3.org/2000/svg"
                       width="28"
                       height="28"
-                      viewBox="0 0 28 28"
+                      viewBox="0 0 24 24"
                       className="cursor-pointer"
                       fill="white"
                     >
@@ -116,9 +116,9 @@ export default function Navbar() {
                   ) : (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      viewBox="0 0 30 30"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 24 24"
                       fill="white"
                     >
                       <path d="M6.995 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007-2.246-5.007-5.007-5.007S6.995 9.239 6.995 12zM11 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2H2zm17 0h3v2h-3zM5.637 19.778l-1.414-1.414 2.121-2.121 1.414 1.414zM16.242 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.344 7.759 4.223 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"></path>
