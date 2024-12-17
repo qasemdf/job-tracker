@@ -130,7 +130,7 @@ const TrackedApplicationsPage: React.FC = () => {
   }
 
   return (
-    <div className="pt-20 h-screen bg-[#213555] dark:bg-[#1E201E] ">
+    <div className="pt-20 bg-[#213555] dark:bg-[#1E201E] ">
       <main className="flex flex-col items-center flex-grow mt-10">
         <h1 className="text-4xl font-bold mb-6 dark:text-[#ECDFCC] text-[#F5EFE7]">
           Your Applications
@@ -213,7 +213,7 @@ const TrackedApplicationsPage: React.FC = () => {
           </div>
           <button
             onClick={handleAddApplication}
-            className="px-4 py-2 dark:bg-[#697565] bg-[#D8C4B6] text-[#F5EFE7] dark:text-[#ECDFCC] rounded hover:bg-[#69756598]"
+            className="px-4 py-2 mb-7 dark:bg-[#697565] bg-[#D8C4B6] text-[#F5EFE7] dark:text-[#ECDFCC] rounded hover:bg-[#69756598]"
           >
             Add Application
           </button>

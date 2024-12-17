@@ -33,7 +33,7 @@ function HpTitle() {
         lorum ipsum so lador this is filler replace this with words later dalor
       </p>
       <a href="/register">
-        <button className="mt-5 text-[#F6FCDF] p-2 font-medium w-[400px] rounded-md dark:bg-gradient-to-r dark:from-[#1E201E] dark:to-[#3C3D37] bg-gradient-to-r from-[#213555] to-[#3E5879]">
+        <button className="mt-5 text-[#F6FCDF] p-2 font-medium w-[400px] rounded-md dark:bg-[#3C3D37] bg-[#3E5879]">
           Start for Free
         </button>
       </a>
