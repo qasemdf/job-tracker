@@ -19,16 +19,6 @@ export default function Navbar() {
       <div className="fixed left-1/2 -translate-x-1/2 rounded-2xl bg-[#202220] h-[79px] z-40 w-full max-w-[820px]"></div>
       <nav className="flex z-50 fixed w-full items-center mt-2 rounded-2xl max-w-[800px] h-16 bg-[#242524] drop-shadow-2xl">
         <div className="flex items-center z-50 w-full">
-          <Link href="/">
-            <Image
-              src="/Lunar.png"
-              alt="logo"
-              width="60"
-              height="20"
-              className="cursor-pointer"
-              priority
-            />
-          </Link>
           <div className="flex justify-evenly container">
             <ul
               className={` ${staatliches.className} text-[#ECDFCC] flex justify-evenly container tracking-widest sm:flex `}

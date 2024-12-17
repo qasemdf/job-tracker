@@ -63,6 +63,27 @@ const JobSearchPage = () => {
     return () => unsubscribe();
   }, [router]);
 
+  useEffect(() => {
+    const fetchInitialJobs = async () => {
+      try {
+        const initialResults = await searchJobs({
+          query: "developer",
+          page: 1,
+          num_pages: 1,
+          date_posted: "all",
+          remote_jobs_only: false,
+        });
+        console.log(initialResults);
+        setResults(initialResults);
+        setError("");
+      } catch (error) {
+        console.error("Could not initilize jobs:", error);
+        setError("failed to load jobs please try again.");
+      }
+    };
+    fetchInitialJobs();
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
