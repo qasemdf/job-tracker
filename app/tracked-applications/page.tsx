@@ -109,19 +109,24 @@ const TrackedApplicationsPage: React.FC = () => {
     }
   };
   const handleDeleteApplication = async (id: string) => {
-    try {
-      const applicationDoc = doc(
-        firestore,
-        "users",
-        user.uid,
-        "applications",
-        id
-      );
-      await deleteDoc(applicationDoc);
+    const confirmed = window.confirm("Are you sure you want to delete?");
+    if (confirmed) {
+      try {
+        const applicationDoc = doc(
+          firestore,
+          "users",
+          user.uid,
+          "applications",
+          id
+        );
+        await deleteDoc(applicationDoc);
 
-      setApplications((prev) => prev.filter((app) => app.id !== id));
-    } catch (error) {
-      console.error("Error deleting application:", error);
+        setApplications((prev) => prev.filter((app) => app.id !== id));
+      } catch (error) {
+        console.error("Error deleting application:", error);
+      }
+    } else {
+      console.log("Canceled");
     }
   };
 
@@ -130,7 +135,11 @@ const TrackedApplicationsPage: React.FC = () => {
   }
 
   return (
+<<<<<<< HEAD
     <div className="pt-20 bg-[#213555] dark:bg-[#1E201E] ">
+=======
+    <div className="pt-20 pb-16 flex-grow bg-[#1E201E] ">
+>>>>>>> 977396b73037f19abf4da87afc6567f9404db6f1
       <main className="flex flex-col items-center flex-grow mt-10">
         <h1 className="text-4xl font-bold mb-6 dark:text-[#ECDFCC] text-[#F5EFE7]">
           Your Applications

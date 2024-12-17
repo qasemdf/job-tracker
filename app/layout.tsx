@@ -16,12 +16,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+<<<<<<< HEAD
       <body className={poppins.className}>
         <NightModeProvider>
           <Navbar />
           {children}
           <Footer />
         </NightModeProvider>
+=======
+      <body className={`${poppins.className} flex flex-col min-h-screen `}>
+        <Navbar />
+        <main className="flex-grow">{children}</main>
+        <Footer />
+>>>>>>> 977396b73037f19abf4da87afc6567f9404db6f1
       </body>
     </html>
   );
