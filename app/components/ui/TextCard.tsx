@@ -6,7 +6,7 @@ function TextCard(props) {
     <div className="flex w-full items-center justify-center gap-16 ">
       <div className="max-w-[550px]">
         <h1
-          className={` ${staatliches.className} text-[50px] font-semibold text-wrap text-[#ECDFCC]`}
+          className={` ${staatliches.className} text-[50px] font-semibold text-wrap dark:text-[#ECDFCC] text-[#F5EFE7]`}
         >
           {props.title}
         </h1>

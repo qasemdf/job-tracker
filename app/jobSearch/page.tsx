@@ -88,7 +88,7 @@ const JobSearchPage = () => {
   }
 
   return (
-    <div className="pt-12">
+    <div className="pt-12 dark:bg-[#1E201E] bg-[#213555]">
       <form
         onSubmit={handleSubmit}
         style={{ display: "flex", flexDirection: "column", gap: "10px" }}

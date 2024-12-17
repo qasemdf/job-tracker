@@ -5,7 +5,7 @@ import { staatliches } from "@/app/fonts/Fonts";
 
 function TripleInfoCards() {
   return (
-    <div className="flex flex-col w-full gap-10 mt-36 text-[#ECDFCC]">
+    <div className="flex flex-col w-full gap-10 mt-36 text-[#F5EFE7] dark:text-[#ECDFCC]">
       <div className="w-[1000px] mx-auto text-center">
         <h1
           className={` ${staatliches.className} tracking-wide text-4xl mb-10`}
@@ -14,7 +14,7 @@ function TripleInfoCards() {
         </h1>
       </div>
       <div className="flex gap-10 justify-center items-center w-full">
-        <div className="w-full max-w-[500px] h-[300px] rou border border-white bg-transparent">
+        <div className="w-full max-w-[500px] h-[300px] rou border dark:border-white border-transparent  bg-transparent">
           <img
             src="/Videos/searchgif.gif"
             alt="video breaking down how to use the job tracker"
@@ -34,7 +34,7 @@ function TripleInfoCards() {
         </div>
       </div>
       <div className="flex gap-10 justify-center items-center w-full">
-        <div className="w-full max-w-[500px] h-[300px] rou border border-white bg-transparent">
+        <div className="w-full max-w-[500px] h-[300px] rou border dark:border-white border-transparent bg-transparent">
           <img
             src="/Videos/applygif.gif"
             alt="video breaking down how to use the job tracker"
@@ -54,7 +54,7 @@ function TripleInfoCards() {
         </div>
       </div>
       <div className="flex gap-10 justify-center items-center w-full">
-        <div className="w-full max-w-[500px] h-[300px] rou border border-white bg-transparent">
+        <div className="w-full max-w-[500px] h-[300px] rou border dark:border-white border-transparent  bg-transparent">
           <img
             src="/Videos/ShowcaseGif.gif"
             alt="video breaking down how to use the job tracker"

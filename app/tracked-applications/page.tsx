@@ -135,33 +135,37 @@ const TrackedApplicationsPage: React.FC = () => {
   }
 
   return (
-    <div className="pt-20 pb-16 flex-grow bg-[#1E201E] ">
+    <div className="pt-20 bg-[#213555] dark:bg-[#1E201E] ">
       <main className="flex flex-col items-center flex-grow mt-10">
-        <h1 className="text-4xl font-bold mb-6 text-[#ECDFCC]">
+        <h1 className="text-4xl font-bold mb-6 dark:text-[#ECDFCC] text-[#F5EFE7]">
           Your Applications
         </h1>
         <div className="container mb-8">
           {applications.map((app) => (
             <div
               key={app.id}
-              className="bg-[#3C3D37] mx-auto max-w-[700px] p-4 rounded shadow mb-4 flex justify-between"
+              className="bg-[#3E5879] dark:bg-[#3C3D37] mx-auto max-w-[700px] p-4 rounded shadow mb-4 flex justify-between"
             >
               <div>
-                <h2 className="text-lg font-bold text-[#ECDFCC]">
+                <h2 className="text-lg font-bold text-[#F5EFE7] dark:text-[#ECDFCC]">
                   {app.companyName}
                 </h2>
-                <p className="text-[#ECDFCC]">{app.position}</p>
-                <p className="text-[#ECDFCC]">{app.description}</p>
+                <p className="dark:text-[#ECDFCC] text-[#F5EFE7]">
+                  {app.position}
+                </p>
+                <p className="dark:text-[#ECDFCC] text-[#F5EFE7]">
+                  {app.description}
+                </p>
                 <p className="text-[#ecdfcc69]">{app.applicationDate}</p>
               </div>
               <div className="flex flex-col space-y-2">
                 <button
                   onClick={() => handleDeleteApplication(app.id)}
-                  className="w-32 h-12 bg-[#a83232] text-[#ECDFCC] rounded-lg font-medium hover:bg-red-700 focus:ring focus:ring-red-500"
+                  className="w-32 h-12 dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] rounded-lg font-medium hover:bg-[#d8c4b6b4] focus:ring focus:ring-[#1b1b1b]"
                 >
                   Delete
                 </button>
-                <button className="w-32 h-12  bg-[#201ea6] text-[#ECDFCC] rounded-lg font-medium hover:bg-red-700 focus:ring focus:ring-red-500">
+                <button className="w-32 h-12 dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] rounded-lg font-medium hover:bg-[#d8c4b6b4] focus:ring focus:ring-[#1b1b1b]">
                   Edit
                 </button>
               </div>
@@ -169,7 +173,7 @@ const TrackedApplicationsPage: React.FC = () => {
           ))}
         </div>
         <div className="container flex flex-col justify-center items-center">
-          <h2 className="text-2xl font-bold mb-4 text-[#ECDFCC]">
+          <h2 className="text-2xl font-bold mb-4 dark:text-[#ECDFCC] text-[#F5EFE7]">
             Add New Application
           </h2>
           <div className="w-full max-w-[700px] mb-4">
@@ -179,7 +183,7 @@ const TrackedApplicationsPage: React.FC = () => {
               value={newApplication.companyName}
               onChange={handleInputChange}
               placeholder="Company Name"
-              className="w-full max-w-[700px] p-2 border rounded bg-[#3C3D37] text-[#ECDFCC] placeholder-[#ECDFCC]"
+              className="w-full max-w-[700px] p-2 border rounded dark:bg-[#3C3D37] bg-[#3E5879] dark:text-[#ECDFCC] text-[#F5EFE7] dark:placeholder-[#ECDFCC] placeholder-[#F5EFE7]"
             />
           </div>
           <div className="w-full max-w-[700px] mb-4">
@@ -189,7 +193,7 @@ const TrackedApplicationsPage: React.FC = () => {
               value={newApplication.position}
               onChange={handleInputChange}
               placeholder="Position"
-              className="w-full max-w-[700px]  p-2 border rounded bg-[#3C3D37] text-[#ECDFCC] placeholder-[#ECDFCC]"
+              className="w-full max-w-[700px]  p-2 border rounded dark:bg-[#3C3D37] bg-[#3E5879] dark:text-[#ECDFCC] text-[#F5EFE7] dark:placeholder-[#ECDFCC] placeholder-[#F5EFE7]"
             />
           </div>
           <div className="w-full max-w-[700px] mb-4">
@@ -199,7 +203,7 @@ const TrackedApplicationsPage: React.FC = () => {
               value={newApplication.description}
               onChange={handleInputChange}
               placeholder="Description"
-              className="w-full max-w-[700px]  p-2 border rounded bg-[#3C3D37] text-[#ECDFCC] placeholder-[#ECDFCC]"
+              className="w-full max-w-[700px]  p-2 border rounded dark:bg-[#3C3D37] bg-[#3E5879] dark:text-[#ECDFCC] text-[#F5EFE7] dark:placeholder-[#ECDFCC] placeholder-[#F5EFE7]"
             />
           </div>
           <div className="w-full max-w-[700px] mb-7">
@@ -209,12 +213,12 @@ const TrackedApplicationsPage: React.FC = () => {
               value={newApplication.applicationDate}
               onChange={handleInputChange}
               placeholder="Application Date"
-              className="w-full max-w-[700px]  p-2 border rounded bg-[#3C3D37] text-[#ECDFCC]"
+              className="w-full max-w-[700px]  p-2 border rounded dark:bg-[#3C3D37] bg-[#3E5879] dark:text-[#ECDFCC] text-[#F5EFE7] dark:placeholder-[#ECDFCC]"
             />
           </div>
           <button
             onClick={handleAddApplication}
-            className="px-4 py-2 bg-[#697565] text-[#ECDFCC] rounded hover:bg-[#69756598]"
+            className="px-4 py-2 mb-7 dark:bg-[#697565] bg-[#D8C4B6] text-[#F5EFE7] dark:text-[#ECDFCC] rounded hover:bg-[#69756598]"
           >
             Add Application
           </button>

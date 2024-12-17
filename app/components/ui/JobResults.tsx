@@ -56,15 +56,16 @@ const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
               )}
 
               {job.job_apply_link && (
-                <a
-                  href={job.job_apply_link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => {
+                    if (job.job_apply_link) {
+                      window.open(job.job_apply_link, "_blank");
+                    }
+                  }}
+                  className="bg-black p-2 rounded-md mt-4 w-[180px]"
                 >
-                  <button className="bg-black p-2 rounded-md mt-4 w-[180px]">
-                    Apply Here
-                  </button>
-                </a>
+                  Apply Here
+                </button>
               )}
             </div>
           </div>

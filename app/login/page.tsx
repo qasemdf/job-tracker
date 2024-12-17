@@ -59,13 +59,13 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="pt-20 flex justify-center min-h-screen">
-      <div className="p-5 rounded-lg max-w-md w-full z-50">
+      <div className="p-5 rounded-lg max-w-[550px] w-full z-50">
         <h2 className="text-white text-3xl font-medium mb-3">Login</h2>
         <p className="text-white mb-8">
           Enter your email and password to login
         </p>
-        <form onSubmit={handleLogin} className="space-y-6">
-          <div>
+        <form onSubmit={handleLogin} className="space-y-6 container">
+          <div className="container">
             <label
               htmlFor="email"
               className="text-sm font-medium block mb-2 text-gray-300"
@@ -81,7 +81,7 @@ const LoginPage: React.FC = () => {
               className="border-2 border-[rgba(215,215,215,0.4)] outline-none text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 bg-black placeholder-gray-400 text-white"
             />
           </div>
-          <div>
+          <div className="container">
             <label
               htmlFor="password"
               className="text-sm font-medium block mb-2 text-gray-300"
@@ -105,10 +105,15 @@ const LoginPage: React.FC = () => {
             Log In
           </button>
 
-          <label htmlFor="remember" className="mr-[40%] text-white">
-            <input type="checkbox" id="remember" className="mt-7" /> remember me
-          </label>
-          <span className="text-white">Forgot password?</span>
+          <div className="container">
+            <label htmlFor="remember" className="mr-[40%] text-white">
+              <input type="checkbox" id="remember" className="mt-7" /> remember
+              me
+            </label>
+            <span className="text-blue-500 hover:underline cursor-pointer">
+              Forgot password?
+            </span>
+          </div>
         </form>
         <p className="text-gray-400 text-sm text-center mt-4 mb-7">
           Don&apos;t have an account?{" "}

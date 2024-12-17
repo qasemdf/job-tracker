@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -14,5 +15,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(190deg, #697565, #ecdfcc);
+  background: #ecdfcc;
 }

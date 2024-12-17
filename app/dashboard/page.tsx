@@ -48,25 +48,25 @@ const DashboardPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#1E201E]">
+    <div className="min-h-screen bg-[#213555] dark:bg-[#1E201E]">
       <div className="text-white text-xl p-8"></div>
 
       <main className="flex flex-col items-center justify-center flex-grow mt-10">
         {userName && (
-          <h1 className="text-4xl text-[#ECDFCC] font-bold mb-6 ml-10 ">
+          <h1 className="text-4xl text-[#F5EFE7] dark:text-[#ECDFCC] font-bold mb-6 ml-10 ">
             Welcome, {userName}!
           </h1>
         )}
         <div className="space-x-4">
           <button
             onClick={handleLogout}
-            className="px-4 py-2 bg-[#697565] text-[#ECDFCC] rounded-md hover:bg-[#6975656c]"
+            className="px-4 py-2 bg-[#D8C4B6] dark:bg-[#697565] text-[#F5EFE7] dark:text-[#ECDFCC] rounded-md hover:bg-[#6975656c]"
           >
             Logout
           </button>
           <button
             onClick={handleChangePassword}
-            className="px-4 py-2 bg-[#697565] text-[#ECDFCC] rounded-md hover:bg-[#69756598]"
+            className="px-4 py-2 bg-[#D8C4B6] dark:bg-[#697565] text-[#F5EFE7] dark:text-[#ECDFCC] rounded-md hover:bg-[#69756598]"
           >
             Change Password
           </button>

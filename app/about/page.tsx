@@ -8,8 +8,8 @@ import { staatliches } from "@/app/fonts/Fonts";
 
 function About() {
   return (
-    <div className="flex flex-col items-center w-full pt-20 text-[#ECDFCC]">
-      <section className="w-full dark:bg-grid-white/[0.1] bg-grid-black/[0.1]">
+    <div className="flex flex-col items-center w-full pt-20 dark:text-[#ECDFCC] text-[#F5EFE7]">
+      <section className="w-full bg-grid-white/[0.1] dark:bg-[#1E201E] bg-[#213555]">
         <h1
           className={` ${staatliches.className} text-[45px] mb-36 mt-14 text-center`}
         >
@@ -40,15 +40,13 @@ function About() {
           </div>
         </div>
       </section>
-      <section className="w-full h-[1700px] flex flex-col bg-[#1E201E] pt-10">
+      <section className="w-full h-[1700px] flex flex-col bg-grid-white/[0.1] dark:bg-[#1E201E] bg-[#213555] text-[#F5EFE7] dark:text-[#ECDFCC] pt-10">
         <h2
           className={` ${quicksand.className} text-center text-[rgba(255,255,255, 0.2)]`}
         >
           Our Values
         </h2>
-        <h2
-          className={` ${staatliches.className} text-[49px] text-center text-[#ECDFCC]`}
-        >
+        <h2 className={` ${staatliches.className} text-[49px] text-center`}>
           Our Values are the catalyst for all of our endeavors
         </h2>
         <GridComponent />
