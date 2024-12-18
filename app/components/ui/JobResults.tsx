@@ -18,13 +18,12 @@ interface JobResultsProps {
 const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
   console.log("Rendering job results: ", results);
   return (
-    <div className="flex justify-center items-center mt-10">
-      <div className="grid grid-cols-2 gap-20">
+    <div className="flex justify-start pl-36 items-center mt-10">
+      <div className="grid grid-cols-1 gap-20">
         {results.map((job) => (
           <div
             key={job.job_id}
-            className=" w-full max-w-[650px] flex gap-5 text-white p-12 rounded-xl"
-            style={{ background: "linear-gradient(260deg, #3C3D37, #1E201E" }}
+            className=" w-full max-w-[650px] flex gap-5 text-[#F5EFE7] dark:text-[#ECDFCC] p-12 bg-gradient-to-tr from-[#213555] to-[#3E5879] dark:from-[#3C3D37] dark:to-[#1E201E] rounded-xl"
           >
             <div>
               {job.employer_logo ? (
@@ -46,7 +45,7 @@ const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
                 {job.job_city}, {job.job_state}
               </p>
 
-              <p className="">{job.job_description.slice(0, 200)}...</p>
+              <p className="">{job.job_description.slice(0, 190)}...</p>
 
               {job.job_min_salary && job.job_max_salary && (
                 <p className="">
@@ -62,7 +61,7 @@ const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
                       window.open(job.job_apply_link, "_blank");
                     }
                   }}
-                  className="bg-black p-2 rounded-md mt-4 w-[180px]"
+                  className="bg-black hover:bg-[#000000a9] p-2 rounded-md mt-4 w-[480px]"
                 >
                   Apply Here
                 </button>
