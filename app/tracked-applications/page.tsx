@@ -205,14 +205,20 @@ const TrackedApplicationsPage: React.FC = () => {
                 >
                   Delete
                 </button>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                 <button className="w-32 h-12 dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] rounded-lg font-medium hover:bg-[#d8c4b6b4] focus:ring focus:ring-[#1b1b1b]">
 =======
+=======
+>>>>>>> a960d57e3d8936d2c813df07d7cbdbda4ceb86d5
                 <button
                   onClick={() => handleEditApplication(app)}
                   className="w-32 h-12 dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] rounded-lg font-medium hover:bg-[#d8c4b6b4] focus:ring focus:ring-[#1b1b1b]"
                 >
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> a960d57e3d8936d2c813df07d7cbdbda4ceb86d5
                   Edit
                 </button>
               </div>
@@ -221,11 +227,15 @@ const TrackedApplicationsPage: React.FC = () => {
         </div>
         <div className="container flex flex-col justify-center items-center">
           <h2 className="text-2xl font-bold mb-4 dark:text-[#ECDFCC] text-[#F5EFE7]">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             Add New Application
 =======
             {editingApplication ? "Edit Application" : "Add New Application"}
 >>>>>>> Stashed changes
+=======
+            {editingApplication ? "Edit Application" : "Add New Application"}
+>>>>>>> a960d57e3d8936d2c813df07d7cbdbda4ceb86d5
           </h2>
           <div className="w-full max-w-[700px] mb-4">
             <input
@@ -283,6 +293,7 @@ const TrackedApplicationsPage: React.FC = () => {
               className="w-full max-w-[700px]  p-2 border rounded dark:bg-[#3C3D37] bg-[#3E5879] dark:text-[#ECDFCC] text-[#F5EFE7] dark:placeholder-[#ECDFCC]"
             />
           </div>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
           <button
             onClick={handleAddApplication}
@@ -291,6 +302,8 @@ const TrackedApplicationsPage: React.FC = () => {
             Add Application
           </button>
 =======
+=======
+>>>>>>> a960d57e3d8936d2c813df07d7cbdbda4ceb86d5
           {editingApplication ? (
             <button
               onClick={handleUpdateApplication}
@@ -307,7 +320,10 @@ const TrackedApplicationsPage: React.FC = () => {
               Add Application
             </button>
           )}
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> a960d57e3d8936d2c813df07d7cbdbda4ceb86d5
         </div>
       </main>
     </div>
