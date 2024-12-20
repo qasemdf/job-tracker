@@ -143,34 +143,32 @@ const JobSearchPage = () => {
             />
           </label>
         */}
-        <div className="flex gap-10 w-full justify-end pr-[480px]">
-          <label className="text-white text-[17px] font-semibold">
-            Date Posted{" "}
-            <select
-              value={datePosted}
-              onChange={(e) =>
-                setDatePosted(
-                  e.target.value as "all" | "today" | "3days" | "week" | "month"
-                )
-              }
-              className="text-black "
-            >
-              <option value="all">All</option>
-              <option value="today">Today</option>
-              <option value="3days">Last 3 Days</option>
-              <option value="week">Last Week</option>
-              <option value="month">Last Month</option>
-            </select>
-          </label>
+        <div className="flex gap-10 w-full justify-end right-[25%] relative">
+          <select
+            value={datePosted}
+            onChange={(e) =>
+              setDatePosted(
+                e.target.value as "all" | "today" | "3days" | "week" | "month"
+              )
+            }
+            className="text-black w-36 h-8 rounded-md"
+          >
+            <option value="all">All</option>
+            <option value="today">Today</option>
+            <option value="3days">Last 3 Days</option>
+            <option value="week">Last Week</option>
+            <option value="month">Last Month</option>
+          </select>
 
-          <label className="text-white text-[17px] font-semibold">
-            Remote Jobs Only{" "}
-            <input
-              type="checkbox"
-              checked={remoteOnly}
-              onChange={(e) => setRemoteOnly(e.target.checked)}
-              className="text-black"
-            />
+          <label className="text-white ">
+            <select
+              value={remoteOnly ? "remote" : "all"}
+              onChange={(e) => setRemoteOnly(e.target.value === "remote")}
+              className="text-black w-36 h-8 rounded-md"
+            >
+              <option value="all">All Jobs</option>
+              <option value="remote">Remote Jobs</option>
+            </select>
           </label>
         </div>
         {error ? <p>{error}</p> : <JobResults results={results} />}

@@ -1,8 +1,8 @@
 function Footer() {
   return (
-    <footer className="flex w-full h-[200px] absolute  justify-evenly p-10 bg-[#3E5879] dark:bg-[#373d3c]">
+    <footer className="flex w-full h-[200px] absolute justify-evenly p-10 bg-[#3E5879] dark:bg-[#373d3c]">
       <div className="flex flex-col gap-2">
-        <h1 className="text-[#F5EFE7] dark:text-[#ECDFCC] text-2xl">LUNAR</h1>
+        <h1 className="text-[#F5EFE7] dark:text-[#ECDFCC] text-2xl">PORTAL</h1>
         <p className="text-[#fbfbfb65]">all rights reserved</p>
         <p className="text-[#fbfbfb65]">Tracker Me 2024</p>
       </div>
