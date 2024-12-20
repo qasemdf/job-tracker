@@ -26,6 +26,7 @@ const TrackedApplicationsPage: React.FC = () => {
   const [user, setUser] = useState<any>(null);
   const [applications, setApplications] = useState<JobApplication[]>([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
   const [newApplication, setNewApplication] = useState({
     companyName: "",
     position: "",
@@ -174,6 +175,17 @@ const TrackedApplicationsPage: React.FC = () => {
     setEditingApplication(null);
   };
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value.toLowerCase());
+  };
+
+  const filteredApplications = applications.filter(
+    (app) =>
+      app.companyName.toLowerCase().includes(searchQuery) ||
+      app.position.toLowerCase().includes(searchQuery) ||
+      app.description.toLowerCase().includes(searchQuery)
+  );
+
   if (loading) {
     return <p className="text-center text-lg mt-10">Loading...</p>;
   }
@@ -184,8 +196,19 @@ const TrackedApplicationsPage: React.FC = () => {
         <h1 className="text-4xl font-bold mb-6 dark:text-[#ECDFCC] text-[#F5EFE7]">
           Your Applications
         </h1>
+
+        <div className="w-full max-w-[700px] mb-8">
+          <input
+            type="text"
+            placeholder="Search by company name, position, or description"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            className="w-full p-2 border rounded dark:bg-[#3C3D37] bg-[#3E5879] dark:text-[#ECDFCC] text-[#F5EFE7] dark:placeholder-[#ECDFCC] placeholder-[#F5EFE7]"
+          />
+        </div>
+
         <div className="container mb-8">
-          {applications.map((app) => (
+          {filteredApplications.map((app) => (
             <div
               key={app.id}
               className="bg-[#3E5879] dark:bg-[#3C3D37] mx-auto max-w-[700px] p-4 rounded shadow mb-4 flex justify-between"
