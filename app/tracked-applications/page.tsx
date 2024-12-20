@@ -170,6 +170,10 @@ const TrackedApplicationsPage: React.FC = () => {
     }
   };
 
+  const handleCancelEdit = () => {
+    setEditingApplication(null);
+  };
+
   if (loading) {
     return <p className="text-center text-lg mt-10">Loading...</p>;
   }
@@ -276,13 +280,21 @@ const TrackedApplicationsPage: React.FC = () => {
             />
           </div>
           {editingApplication ? (
-            <button
-              onClick={handleUpdateApplication}
-              className="px-4 py-2 mb-7 dark:bg-[#697565] bg-[#D8C4B6] text-[#F5EFE7] dark:text-[#ECDFCC] rounded hover:bg-[#69756598]"
-            >
-              {" "}
-              Update Application
-            </button>
+            <>
+              <button
+                onClick={handleUpdateApplication}
+                className="px-4 py-2 mb-2 w-50 dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] rounded-lg font-medium hover:bg-[#d8c4b6b4] focus:ring focus:ring-[#1b1b1b]"
+              >
+                {" "}
+                Update Application
+              </button>
+              <button
+                onClick={handleCancelEdit}
+                className="px-4 py-2 mb-7 w-50 dark:bg-red-600 bg-red-400 dark:text-[#ECDFCC] text-[#F5EFE7] rounded-lg font-medium hover:bg-[#ff3c3c] focus:ring focus:ring-[#1b1b1b]"
+              >
+                Cancel Edit
+              </button>
+            </>
           ) : (
             <button
               onClick={handleAddApplication}
