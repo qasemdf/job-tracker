@@ -41,15 +41,12 @@ const JobSearchPage = () => {
         const userDoc = await getDoc(doc(firestore, "users", user.uid));
         if (!userDoc.exists()) {
           const registrationData = localStorage.getItem("registrationData");
-          const {
-            firstName = "",
-            lastName = "",
-            gender = "",
-          } = registrationData ? JSON.parse(registrationData) : {};
+          const { firstName = "", lastName = "" } = registrationData
+            ? JSON.parse(registrationData)
+            : {};
           await setDoc(doc(firestore, "users", user.uid), {
             firstName,
             lastName,
-            gender,
             email: user.email,
           });
           localStorage.removeItem("registrationData");
@@ -62,6 +59,27 @@ const JobSearchPage = () => {
     });
     return () => unsubscribe();
   }, [router]);
+
+  useEffect(() => {
+    const fetchInitialJobs = async () => {
+      try {
+        const initialResults = await searchJobs({
+          query: "developer",
+          page: 1,
+          num_pages: 1,
+          date_posted: "all",
+          remote_jobs_only: false,
+        });
+        console.log(initialResults);
+        setResults(initialResults);
+        setError("");
+      } catch (error) {
+        console.error("Could not initilize jobs:", error);
+        setError("failed to load jobs please try again.");
+      }
+    };
+    fetchInitialJobs();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -101,18 +119,17 @@ const JobSearchPage = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search for a job like frontend developer in Texas, USA"
-              className="text-black w-full h-10 rounded-3xl pl-4 pr-20"
+              className="text-black w-full h-14 rounded mt-9 pl-4 pr-20"
             />
 
             <button
               type="submit"
-              className="absolute right-2 top-1/2 transform rounded-3xl -translate-y-1/2 text-[#000] p-2 font-medium bg-transparent rounded-md"
+              className="absolute right-5 top-1/2 transform -translate-y-[7%] text-[#000] p-2 font-medium bg-transparent rounded-md"
             >
-              Search Jobs
+              Search Jobs 🔎
             </button>
           </label>
         </div>
-
         {/*
           <label className="text-white text-[12px] font-semibold">
             Number of Pages:
@@ -126,54 +143,52 @@ const JobSearchPage = () => {
             />
           </label>
         */}
+        <div className="flex gap-10 w-full justify-end right-[25%] relative">
+          <select
+            value={datePosted}
+            onChange={(e) =>
+              setDatePosted(
+                e.target.value as "all" | "today" | "3days" | "week" | "month"
+              )
+            }
+            className="text-black w-36 h-8 rounded-md"
+          >
+            <option value="all">All</option>
+            <option value="today">Today</option>
+            <option value="3days">Last 3 Days</option>
+            <option value="week">Last Week</option>
+            <option value="month">Last Month</option>
+          </select>
 
-        <div className="flex gap-10 w-full justify-end pr-[480px]">
-          <label className="text-white text-[17px] font-semibold">
-            Date Posted{" "}
+          <label className="text-white ">
             <select
-              value={datePosted}
-              onChange={(e) =>
-                setDatePosted(
-                  e.target.value as "all" | "today" | "3days" | "week" | "month"
-                )
-              }
-              className="text-black "
+              value={remoteOnly ? "remote" : "all"}
+              onChange={(e) => setRemoteOnly(e.target.value === "remote")}
+              className="text-black w-36 h-8 rounded-md"
             >
-              <option value="all">All</option>
-              <option value="today">Today</option>
-              <option value="3days">Last 3 Days</option>
-              <option value="week">Last Week</option>
-              <option value="month">Last Month</option>
+              <option value="all">All Jobs</option>
+              <option value="remote">Remote Jobs</option>
             </select>
           </label>
-
-          <label className="text-white text-[17px] font-semibold">
-            Remote Jobs Only{" "}
-            <input
-              type="checkbox"
-              checked={remoteOnly}
-              onChange={(e) => setRemoteOnly(e.target.checked)}
-              className="text-black"
-            />
-          </label>
         </div>
-
         {error ? <p>{error}</p> : <JobResults results={results} />}
 
-        <div className="flex flex-col text-white text-[12px] font-semibold flex justify-center items-center gap-2 mt-12">
-          <span className="text-[25px] text-[#ECDFCC]">Page {page}</span>
+        <div className="flex flex-col text-white text-[12px] font-semibold justify-center items-center gap-2 mt-12">
+          <span className="text-[25px] dark:text-[#ECDFCC] text-[#F5EFE7] ">
+            Page {page}
+          </span>
           <div className="flex gap-4 mb-5">
             <button
               type="submit"
               onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-              className="bg-[#697565] text-[#ECDFCC] text-lg font-semibold px-5 py-1 rounded-md "
+              className="dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] text-lg font-semibold px-5 py-1 rounded-md "
             >
               prev
             </button>
             <button
               type="submit"
               onClick={() => setPage((prev) => Math.min(prev + 1, 10))}
-              className="bg-[#697565] text-[#ECDFCC] text-lg font-semibold px-5 py-1 rounded-md"
+              className="dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7]  text-lg font-semibold px-5 py-1 rounded-md"
             >
               next
             </button>
