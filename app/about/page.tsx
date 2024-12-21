@@ -16,7 +16,7 @@ function About() {
         <h1
           className={` ${staatliches.className} text-[45px] mb-36 mt-14 text-center`}
         >
-          This was made by two very passionate developers
+          made by two very passionate developers
         </h1>
         <div className="flex justify-center gap-10 w-full">
           <TestComponent
@@ -46,7 +46,7 @@ function About() {
               className="container flex flex-col items-center space-x-4 p-4 rounded-lg bg-[#FF5700] text-white"
               initial={{ opacity: 0, translateY: 40 }}
               animate={{ opacity: 1, translateY: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
               <h3 className="text-lg font-bold mb-2">
                 The initial Post on Reddit
@@ -62,30 +62,34 @@ function About() {
               />
             </motion.div>
             <motion.div
-              className="container flex h-full flex-col items-center space-x-4 p-4 rounded-lg bg-[#0079D3] text-white"
+              className="container flex h-96 flex-col items-center space-x-4 p-4 rounded-lg bg-[#0079D3] text-white"
               initial={{ opacity: 0, translateY: 40 }}
               animate={{ opacity: 1, translateY: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
+              transition={{ duration: 0.8, delay: 1.8 }}
             >
               <h3 className="text-lg font-bold mb-2">The Response</h3>
               <p>
                 "Hey! I saw your post. I’d love to team up and work on something
                 together!"
               </p>
-              <img src="/FirstMessage.png" alt="" className="rounded-md pt-4" />
+              <img
+                src="/FirstMessage.png"
+                alt=""
+                className="rounded-md pt-4 w-full"
+              />
             </motion.div>
             <motion.div
-              className="container flex h-full flex-col items-center p-6 rounded-lg bg-[#3E5879] text-white"
+              className="container flex h-96 flex-col items-center p-6 rounded-lg bg-[#3E5879] text-white"
               initial={{ opacity: 0, translateY: 40 }}
               animate={{ opacity: 1, translateY: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
+              transition={{ duration: 0.8, delay: 2.8 }}
             >
               <h3 className="text-lg font-bold mb-2">Collaboration Begins</h3>
               <p>
                 Rango and Dean started working together on amazing projects,
                 building skills and forging a great partnership!
               </p>
-              <img src="" alt="" className="w-full mt-4 rounded-lg" />
+              <img src="" alt="" className="w-full h-96  mt-4 rounded-lg" />
             </motion.div>
           </div>
         </div>

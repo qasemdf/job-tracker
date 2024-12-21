@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const TestComponent = (props) => (
   <motion.div
-    className="container flex flex-col justify-between max-w-[620px] h-96 rounded-lg dark:bg-[#3C3D37] bg-[#3E5879]"
+    className="container flex flex-col justify-between max-w-[620px] h-96 rounded-lg dark:bg-[#191A19] bg-[#27374D]"
     initial={{ opacity: 0, translateY: 40 }}
     animate={{ opacity: 1, translateY: 0 }}
     transition={{ duration: 0.8 }}
@@ -15,7 +15,7 @@ export const TestComponent = (props) => (
       />
       <h1 className="text-[25px]">{props.title}</h1>
     </div>
-    <div className="container flex items-center h-52 bg-[#213555] dark:bg-[#1E201E] p-5">
+    <div className="container flex items-center h-52 bg-[#526D82] dark:bg-[#31511E] p-5">
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore eum
         aliquid aut magni, tenetur maiores soluta esse voluptatum nesciunt
