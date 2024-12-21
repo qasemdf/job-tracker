@@ -22,14 +22,15 @@ function About() {
         <div className="flex flex-col w-full justify-center items-center">
           <div className="flex gap-10 mt-44">
             <h1 className={` ${staatliches.className} text-[25px]`}>
-              Too is a Platform for Jobs of Services Replace Dis Later on Lad
+              The Journey Behind How This Project Began
             </h1>
             <div className="w-[790px]">
               <p className={` ${quicksand.className} text-[25px] text-wrap`}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
-                repudiandae possimus provident dolor natus ipsum qui sed quo
-                eaque repellat id quae, at sunt. Necessitatibus consequatur
-                exercitationem ducimus asperiores harum?
+                After connecting on Reddit over a shared interest in solving
+                real-world problems, we teamed up to create a job search app
+                designed to help users track and manage their job applications
+                efficiently. Combining our skills and ideas, we embarked on this
+                journey to build a tool that simplifies the job-hunting process.
               </p>
             </div>
           </div>

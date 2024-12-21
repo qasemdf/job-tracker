@@ -90,7 +90,15 @@ const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
             <p className="mb-2">
               {selectedJob.job_city}, {selectedJob.job_state}
             </p>
-            <p className="mb-4">{selectedJob.job_description}</p>
+            <p className="mb-4">
+              {selectedJob.job_description
+                .split("\n")
+                .map((paragraph, index) => (
+                  <p key={index} className="mb-4">
+                    {paragraph}
+                  </p>
+                ))}
+            </p>
             {selectedJob.job_min_salary && selectedJob.job_max_salary && (
               <p className="mb-4">
                 ${selectedJob.job_min_salary} - ${selectedJob.job_max_salary}{" "}
@@ -102,7 +110,7 @@ const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
                 onClick={() =>
                   window.open(selectedJob.job_apply_link, "_blank")
                 }
-                className="bg-black hover:bg-[#000000a9] text-white py-2 px-4 rounded-md"
+                className="bg-black hover:bg-[#000000a9] text-white w-[670px] py-2 px-4 rounded-md"
               >
                 Apply Here
               </button>

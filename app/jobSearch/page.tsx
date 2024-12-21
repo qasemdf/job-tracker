@@ -64,7 +64,7 @@ const JobSearchPage = () => {
     const fetchInitialJobs = async () => {
       try {
         const initialResults = await searchJobs({
-          query: "developer",
+          query: "fullstack developer",
           page: 1,
           num_pages: 1,
           date_posted: "all",
@@ -143,7 +143,7 @@ const JobSearchPage = () => {
             />
           </label>
         */}
-        <div className="flex gap-10 w-full justify-end right-[25%] relative">
+        <div className="flex gap-10 w-full justify-end right-[12.5%] relative">
           <select
             value={datePosted}
             onChange={(e) =>
