@@ -15,7 +15,7 @@ export const TestComponent = (props) => (
       />
       <h1 className="text-[25px]">{props.title}</h1>
     </div>
-    <div className="container flex items-center h-52 bg-[#526D82] dark:bg-[#31511E] p-5">
+    <div className="container flex items-center h-52 bg-[#191A19] dark:bg-[#3C3D37] p-5">
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore eum
         aliquid aut magni, tenetur maiores soluta esse voluptatum nesciunt

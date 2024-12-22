@@ -35,6 +35,33 @@ const JobSearchPage = () => {
   const [error, setError] = useState<string>("");
   const router = useRouter();
 
+  function createRandomJobName() {
+    const jobs = [
+      "frontend developer",
+      "janitor",
+      "fullstack developer",
+      "cashier",
+      "stocking",
+      "retail",
+      "car salesman",
+      "marketing",
+      "phone operator",
+      "police officer",
+      "fireman",
+      "accountant",
+      "baker",
+      "nurse",
+      "medical technician",
+      "EKG technician",
+    ];
+
+    let randomNum = Math.floor(Math.random() * jobs.length);
+
+    return jobs[randomNum];
+  }
+
+  const randomJob = createRandomJobName();
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user && user.emailVerified) {
@@ -64,7 +91,7 @@ const JobSearchPage = () => {
     const fetchInitialJobs = async () => {
       try {
         const initialResults = await searchJobs({
-          query: "fullstack developer",
+          query: randomJob,
           page: 1,
           num_pages: 1,
           date_posted: "all",
