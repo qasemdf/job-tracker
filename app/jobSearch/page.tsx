@@ -102,7 +102,11 @@ const JobSearchPage = () => {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <img src="./Videos/Bean.svg" />
+      </div>
+    );
   }
 
   return (
