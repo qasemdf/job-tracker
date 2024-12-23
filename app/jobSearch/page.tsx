@@ -23,6 +23,7 @@ interface Job {
 
 const JobSearchPage = () => {
   const [loading, setLoading] = useState(true);
+  const [searchLoading, setSearchLoading] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
@@ -90,6 +91,7 @@ const JobSearchPage = () => {
   useEffect(() => {
     const fetchInitialJobs = async () => {
       try {
+        setSearchLoading(true);
         const initialResults = await searchJobs({
           query: randomJob,
           page: 1,
@@ -97,41 +99,54 @@ const JobSearchPage = () => {
           date_posted: "all",
           remote_jobs_only: false,
         });
-        console.log(initialResults);
         setResults(initialResults);
         setError("");
       } catch (error) {
-        console.error("Could not initilize jobs:", error);
-        setError("failed to load jobs please try again.");
+        console.error("Could not initialize jobs:", error);
+        setError("Failed to load jobs. Please try again.");
+      } finally {
+        setSearchLoading(false);
       }
     };
     fetchInitialJobs();
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const fetchJobs = async (newPage: number) => {
+    setSearchLoading(true);
     try {
       const results = await searchJobs({
         query,
-        page,
+        page: newPage,
         num_pages: numPages,
         date_posted: datePosted,
         remote_jobs_only: remoteOnly,
       });
       setResults(results);
+      setPage(newPage);
       setError("");
     } catch (error) {
       console.error("Error fetching jobs:", error);
       setError("Failed to fetch jobs. Please try again later.");
       setResults([]);
+    } finally {
+      setSearchLoading(false);
     }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    fetchJobs(1);
+  };
+
+  const handlePageChange = (newPage: number) => {
+    if (newPage < 1 || newPage > 10) return;
+    fetchJobs(newPage);
   };
 
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <img src="./Videos/Bean.svg" />
+        <img src="./Videos/Bean.svg" alt="Loading..." className="w-45 h-45" />
       </div>
     );
   }
@@ -143,7 +158,7 @@ const JobSearchPage = () => {
         style={{ display: "flex", flexDirection: "column", gap: "10px" }}
         className="text-black"
       >
-        <div className="flex justify-center items-center ">
+        <div className="flex justify-center items-center">
           <label className="items-center relative w-full max-w-[1400px] mt-10 mb-7">
             <input
               type="text"
@@ -152,15 +167,16 @@ const JobSearchPage = () => {
               placeholder="Search for a job like frontend developer in Texas, USA"
               className="text-black w-full h-14 rounded mt-9 pl-4 pr-20"
             />
-
             <button
               type="submit"
+              disabled={searchLoading}
               className="absolute right-5 top-1/2 transform -translate-y-[7%] text-[#000] p-2 font-medium bg-transparent rounded-md"
             >
-              Search Jobs 🔎
+              {searchLoading ? "Searching..." : "Search Jobs 🔎"}
             </button>
           </label>
         </div>
+
         {/*
           <label className="text-white text-[12px] font-semibold">
             Number of Pages:
@@ -183,6 +199,7 @@ const JobSearchPage = () => {
               )
             }
             className="text-black w-36 h-8 rounded-md"
+            disabled={searchLoading}
           >
             <option value="all">All</option>
             <option value="today">Today</option>
@@ -191,35 +208,51 @@ const JobSearchPage = () => {
             <option value="month">Last Month</option>
           </select>
 
-          <label className="text-white ">
+          <label className="text-white">
             <select
               value={remoteOnly ? "remote" : "all"}
               onChange={(e) => setRemoteOnly(e.target.value === "remote")}
               className="text-black w-36 h-8 rounded-md"
+              disabled={searchLoading}
             >
               <option value="all">All Jobs</option>
               <option value="remote">Remote Jobs</option>
             </select>
           </label>
         </div>
-        {error ? <p>{error}</p> : <JobResults results={results} />}
+
+        {searchLoading ? (
+          <div className="flex items-center justify-center h-screen">
+            <img
+              src="./Videos/Bean.svg"
+              alt="Loading results..."
+              className="w-45 h-45"
+            />
+          </div>
+        ) : error ? (
+          <p className="text-red-500 text-center">{error}</p>
+        ) : (
+          <JobResults results={results} />
+        )}
 
         <div className="flex flex-col text-white text-[12px] font-semibold justify-center items-center gap-2 mt-12">
-          <span className="text-[25px] dark:text-[#ECDFCC] text-[#F5EFE7] ">
+          <span className="text-[25px] dark:text-[#ECDFCC] text-[#F5EFE7]">
             Page {page}
           </span>
           <div className="flex gap-4 mb-5">
             <button
-              type="submit"
-              onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-              className="dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] text-lg font-semibold px-5 py-1 rounded-md "
+              type="button"
+              onClick={() => handlePageChange(page - 1)}
+              disabled={searchLoading || page <= 1}
+              className="dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] text-lg font-semibold px-5 py-1 rounded-md disabled:opacity-50"
             >
               prev
             </button>
             <button
-              type="submit"
-              onClick={() => setPage((prev) => Math.min(prev + 1, 10))}
-              className="dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7]  text-lg font-semibold px-5 py-1 rounded-md"
+              type="button"
+              onClick={() => handlePageChange(page + 1)}
+              disabled={searchLoading || page >= 10}
+              className="dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] text-lg font-semibold px-5 py-1 rounded-md disabled:opacity-50"
             >
               next
             </button>
