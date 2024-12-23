@@ -8,19 +8,24 @@ import "./globals.css";
 import { NightModeProvider } from "./components/home";
 
 import { poppins } from "./fonts/Fonts";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const hideFooterRoutes = ["/dashboard"];
+  const shouldHideFooter = hideFooterRoutes.includes(pathname);
   return (
     <html lang="en">
       <body className={poppins.className}>
         <NightModeProvider>
           <Navbar />
           {children}
-          <Footer />
+          {!shouldHideFooter && <Footer />}
         </NightModeProvider>
       </body>
     </html>
