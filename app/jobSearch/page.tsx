@@ -36,6 +36,33 @@ const JobSearchPage = () => {
   const [error, setError] = useState<string>("");
   const router = useRouter();
 
+  function createRandomJobName() {
+    const jobs = [
+      "frontend developer",
+      "janitor",
+      "fullstack developer",
+      "cashier",
+      "stocking",
+      "retail",
+      "car salesman",
+      "marketing",
+      "phone operator",
+      "police officer",
+      "fireman",
+      "accountant",
+      "baker",
+      "nurse",
+      "medical technician",
+      "EKG technician",
+    ];
+
+    let randomNum = Math.floor(Math.random() * jobs.length);
+
+    return jobs[randomNum];
+  }
+
+  const randomJob = createRandomJobName();
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user && user.emailVerified) {
@@ -66,7 +93,7 @@ const JobSearchPage = () => {
       try {
         setSearchLoading(true);
         const initialResults = await searchJobs({
-          query: "developer",
+          query: randomJob,
           page: 1,
           num_pages: 1,
           date_posted: "all",
@@ -150,7 +177,20 @@ const JobSearchPage = () => {
           </label>
         </div>
 
-        <div className="flex gap-10 w-full justify-end right-[25%] relative">
+        {/*
+          <label className="text-white text-[12px] font-semibold">
+            Number of Pages:
+            <input
+              type="number"
+              value={numPages}
+              onChange={(e) => setNumPages(parseInt(e.target.value))}
+              min="1"
+              max="10"
+              className="text-black"
+            />
+          </label>
+        */}
+        <div className="flex gap-10 w-full justify-end right-[12.5%] relative">
           <select
             value={datePosted}
             onChange={(e) =>

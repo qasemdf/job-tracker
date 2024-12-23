@@ -1,4 +1,7 @@
 "use client";
+
+import { motion } from "framer-motion";
+
 import { GridComponent } from "../components/ui/GridComponent";
 
 import { TestComponent } from "../components/ui/test";
@@ -13,30 +16,81 @@ function About() {
         <h1
           className={` ${staatliches.className} text-[45px] mb-36 mt-14 text-center`}
         >
-          This was made by two very passionate developers
+          made by two very passionate developers
         </h1>
         <div className="flex justify-center gap-10 w-full">
-          <TestComponent />
-          <TestComponent />
+          <TestComponent
+            title="Rango - Frontend Developer"
+            pfp="/RangoPc.png"
+            desc=""
+          />
+          <TestComponent title="Dean - FullStack Developer" pfp="" desc="" />
         </div>
         <div className="flex flex-col w-full justify-center items-center">
           <div className="flex gap-10 mt-44">
             <h1 className={` ${staatliches.className} text-[25px]`}>
-              Too is a Platform for Jobs of Services Replace Dis Later on Lad
+              The Journey Behind How This Project Began
             </h1>
             <div className="w-[790px]">
               <p className={` ${quicksand.className} text-[25px] text-wrap`}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
-                repudiandae possimus provident dolor natus ipsum qui sed quo
-                eaque repellat id quae, at sunt. Necessitatibus consequatur
-                exercitationem ducimus asperiores harum?
+                After connecting on Reddit over a shared interest in solving
+                real-world problems, we teamed up to create a job search app
+                designed to help users track and manage their job applications
+                efficiently. Combining our skills and ideas, we embarked on this
+                journey to build a tool that simplifies the job-hunting process.
               </p>
             </div>
           </div>
-          <div className="flex w-full justify-center mt-36 gap-24">
-            <div className="w-full max-w-[485px] h-64 mb-14 rounded-lg bg-white"></div>
-            <div className="w-full max-w-[485px] h-64 mb-14 rounded-lg bg-white"></div>
-            <div className="w-full max-w-[485px] h-64 mb-14 rounded-lg bg-white"></div>
+          <div className="flex w-full justify-center mt-36 p-5 gap-24">
+            <motion.div
+              className="container flex flex-col items-center space-x-4 p-4 rounded-lg bg-[#FF5700] text-white"
+              initial={{ opacity: 0, translateY: 40 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <h3 className="text-lg font-bold mb-2">
+                The initial Post on Reddit
+              </h3>
+              <p>
+                "Hey! Looking for someone to code with and share ideas. Let’s
+                build something cool!"
+              </p>
+              <img
+                src="/PostforRangoandDean.png"
+                alt=""
+                className="rounded-md pt-4"
+              />
+            </motion.div>
+            <motion.div
+              className="container flex h-96 flex-col items-center space-x-4 p-4 rounded-lg bg-[#0079D3] text-white"
+              initial={{ opacity: 0, translateY: 40 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              transition={{ duration: 0.8, delay: 1.8 }}
+            >
+              <h3 className="text-lg font-bold mb-2">The Response</h3>
+              <p>
+                "Hey! I saw your post. I’d love to team up and work on something
+                together!"
+              </p>
+              <img
+                src="/FirstMessage.png"
+                alt=""
+                className="rounded-md pt-4 w-full"
+              />
+            </motion.div>
+            <motion.div
+              className="container flex h-96 flex-col items-center p-6 rounded-lg bg-[#3E5879] text-white"
+              initial={{ opacity: 0, translateY: 40 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              transition={{ duration: 0.8, delay: 2.8 }}
+            >
+              <h3 className="text-lg font-bold mb-2">Collaboration Begins</h3>
+              <p>
+                Rango and Dean started working together on amazing projects,
+                building skills and forging a great partnership!
+              </p>
+              <img src="" alt="" className="w-full h-96  mt-4 rounded-lg" />
+            </motion.div>
           </div>
         </div>
       </section>
