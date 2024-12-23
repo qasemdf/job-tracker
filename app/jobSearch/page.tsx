@@ -108,7 +108,7 @@ const JobSearchPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    fetchJobs(1); // Reset to first page on new search
+    fetchJobs(1);
   };
 
   const handlePageChange = (newPage: number) => {
