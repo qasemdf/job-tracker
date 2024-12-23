@@ -67,7 +67,7 @@ const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
             </div>
           ))}
           {results.length === 0 && (
-            <p className="text-white">No results found</p>
+            <p className="text-[#F5EFE7] text-8xl">No results found</p>
           )}
         </div>
       </div>
@@ -109,9 +109,11 @@ const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
             )}
           </div>
         ) : (
-          <div className="p-8 text-gray-500">
-            <p>Select a job to view more details.</p>
-          </div>
+          results.length != 0 && (
+            <div className="p-8 text-gray-500">
+              <p>Select a job to view more details.</p>
+            </div>
+          )
         )}
       </div>
     </div>
