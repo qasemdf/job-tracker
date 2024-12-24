@@ -11,17 +11,12 @@ export const TestComponent = (props) => (
       <img
         src={props.pfp}
         alt="a image that represents the developer who worked on this project"
-        className="w-44 mr-12"
+        className="w-44 mr-12 rounded-md"
       />
       <h1 className="text-[25px]">{props.title}</h1>
     </div>
-    <div className="container flex items-center h-52 bg-[#191A19] dark:bg-[#3C3D37] p-5">
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore eum
-        aliquid aut magni, tenetur maiores soluta esse voluptatum nesciunt
-        ratione dolorem laudantium fugiat placeat enim eius voluptates rerum
-        aliquam quis?
-      </p>
+    <div className="container flex items-center h-52 bg-[#27374D] dark:bg-[#191A19] p-5">
+      <p>{props.desc}</p>
     </div>
   </motion.div>
 );

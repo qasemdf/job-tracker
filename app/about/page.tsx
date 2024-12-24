@@ -22,9 +22,13 @@ function About() {
           <TestComponent
             title="Rango - Frontend Developer"
             pfp="/RangoPc.png"
-            desc=""
+            desc='"I got into coding out of curiosity, and it quickly became a passion. I love solving problems, building projects, and constantly learning new things. For me, coding is a creative way to bring ideas to life."'
           />
-          <TestComponent title="Dean - FullStack Developer" pfp="" desc="" />
+          <TestComponent
+            title="Dean - FullStack Developer"
+            pfp="/dean.pfp"
+            desc="lorum ipsum dolar solar blah blah mag mah asd kasod a0sd0asidjas oasdjasd ouiasjd aosdijasdfog osijgosdgi aojso dasdo ijasdasdoidj asdoijasdoijasd oijasdoijasd oijasdoijd asoidjs doiajd oijd aoisdjasdioj asd oijd"
+          />
         </div>
         <div className="flex flex-col w-full justify-center items-center">
           <div className="flex gap-10 mt-44">
@@ -58,7 +62,7 @@ function About() {
               <img
                 src="/PostforRangoandDean.png"
                 alt=""
-                className="rounded-md pt-4"
+                className="rounded-md pt-4 object-fit"
               />
             </motion.div>
             <motion.div
@@ -73,9 +77,9 @@ function About() {
                 together!"
               </p>
               <img
-                src="/FirstMessage.png"
+                src="/firstmessagev2.png"
                 alt=""
-                className="rounded-md pt-4 w-full"
+                className="rounded-lg pt-4 w-[500px] h-[268px] object-cover"
               />
             </motion.div>
             <motion.div
@@ -89,7 +93,12 @@ function About() {
                 Rango and Dean started working together on amazing projects,
                 building skills and forging a great partnership!
               </p>
-              <img src="" alt="" className="w-full h-96  mt-4 rounded-lg" />
+
+              <img
+                src="/linear.png"
+                alt=""
+                className="w-[500px] h-[250px]   mt-4 rounded-lg"
+              />
             </motion.div>
           </div>
         </div>
