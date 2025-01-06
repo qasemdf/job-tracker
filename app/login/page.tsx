@@ -3,7 +3,12 @@
 import JobSearchForm from "../components/ui/jobSearch";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth, firestore } from "@/firebase/clientApp";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import Link from "next/link";
@@ -55,6 +60,34 @@ const LoginPage: React.FC = () => {
           : "An unknown error has occurred."
       );
     }
+  };
+
+  const handleGoogle = (e) => {
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+
+        router.push("/");
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
   };
 
   return (
@@ -123,7 +156,10 @@ const LoginPage: React.FC = () => {
         </p>
         <p className="mb-2 text-white">Or continue with</p>
         <div className="flex gap-5 justify-center">
-          <button className="w-[220px] border border-[rgba(215,215,215,0.4)] rounded-lg h-[35px] bg-black text-white">
+          <button
+            onClick={handleGoogle}
+            className="w-[220px] border border-[rgba(215,215,215,0.4)] rounded-lg h-[35px] bg-black text-white"
+          >
             Google
           </button>
           <button className="w-[220px] border border-[rgba(215,215,215,0.4)] rounded-lg h-[35px] bg-black text-white">

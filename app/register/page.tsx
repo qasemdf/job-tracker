@@ -4,6 +4,9 @@ import { useRouter } from "@/node_modules/next/navigation";
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
 } from "firebase/auth";
 import { auth } from "@/firebase/clientApp";
 import Link from "@/node_modules/next/link";
@@ -18,6 +21,8 @@ const RegisterPage = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+
+  const provider = new GoogleAuthProvider();
   const router = useRouter();
 
   const handleRegister = async (event: FormEvent) => {
@@ -65,6 +70,34 @@ const RegisterPage = () => {
         setError("An unknown error occurred");
       }
     }
+  };
+
+  const handleGoogle = (e) => {
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+
+        router.push("/");
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
   };
 
   return (
@@ -158,6 +191,22 @@ const RegisterPage = () => {
           >
             Sign Up
           </button>
+          <div className="relative flex py-5 items-center">
+            <div className="flex-grow border-t border-gray-400"></div>
+            <span className="flex-shrink mx-4 text-white">Or</span>
+            <div className="flex-grow border-t border-gray-400"></div>
+          </div>
+          <div className="flex gap-5 justify-center">
+            <button
+              onClick={handleGoogle}
+              className="w-[220px] border border-[rgba(215,215,215,0.4)] rounded-lg h-[35px] bg-black text-white"
+            >
+              Google
+            </button>
+            <button className="w-[220px] border border-[rgba(215,215,215,0.4)] rounded-lg h-[35px] bg-black text-white">
+              Github
+            </button>
+          </div>
         </form>
         <p className="text-sm font-medium text-white mt-5">
           Already have an account?{" "}
