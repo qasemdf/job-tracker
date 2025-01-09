@@ -8,11 +8,14 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
+  GithubAuthProvider,
+  signInWithRedirect,
 } from "firebase/auth";
 import { auth, firestore } from "@/firebase/clientApp";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import Link from "next/link";
 import { BackgroundBeams } from "../helper components/BackgrounBeamSetup";
+import { setUserId } from "firebase/analytics";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -90,6 +93,37 @@ const LoginPage: React.FC = () => {
       });
   };
 
+  const handleGitHub = (e) => {
+    const provider = new GithubAuthProvider();
+    const auth = getAuth();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+        const credential = GithubAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+        console.log(result.user);
+        console.log("BEASTTT");
+        router.push("/");
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GithubAuthProvider.credentialFromError(error);
+
+        // ...
+      });
+  };
+
   return (
     <div className="pt-20 flex justify-center min-h-screen">
       <div className="p-5 rounded-lg max-w-[550px] w-full z-50">
@@ -162,7 +196,10 @@ const LoginPage: React.FC = () => {
           >
             Google
           </button>
-          <button className="w-[220px] border border-[rgba(215,215,215,0.4)] rounded-lg h-[35px] bg-black text-white">
+          <button
+            onClick={handleGitHub}
+            className="w-[220px] border border-[rgba(215,215,215,0.4)] rounded-lg h-[35px] bg-black text-white"
+          >
             Github
           </button>
         </div>
