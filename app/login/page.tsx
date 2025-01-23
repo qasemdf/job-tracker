@@ -61,6 +61,9 @@ const LoginPage: React.FC = () => {
       );
     }
   };
+  const handleForgotPassword = () => {
+    router.push("/forgotPassword");
+  };
 
   const handleGoogle = (e) => {
     const provider = new GoogleAuthProvider();
@@ -143,7 +146,10 @@ const LoginPage: React.FC = () => {
               <input type="checkbox" id="remember" className="mt-7" /> remember
               me
             </label>
-            <span className="text-blue-500 hover:underline cursor-pointer">
+            <span
+              className="text-blue-500 hover:underline cursor-pointer"
+              onClick={handleForgotPassword}
+            >
               Forgot password?
             </span>
           </div>
