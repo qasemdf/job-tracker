@@ -56,6 +56,9 @@ const LoginPage: React.FC = () => {
       );
     }
   };
+  const handleForgotPassword = () => {
+    router.push("/forgotPassword");
+  };
 
   return (
     <div className="pt-20 flex justify-center min-h-screen">
@@ -110,7 +113,10 @@ const LoginPage: React.FC = () => {
               <input type="checkbox" id="remember" className="mt-7" /> remember
               me
             </label>
-            <span className="text-blue-500 hover:underline cursor-pointer">
+            <span
+              className="text-blue-500 hover:underline cursor-pointer"
+              onClick={handleForgotPassword}
+            >
               Forgot password?
             </span>
           </div>
