@@ -39,7 +39,11 @@ const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
                     className="w-[60px] h-[60px] rounded-lg"
                   />
                 ) : (
-                  <div className="w-[60px] h-[60px] bg-gray-400 rounded-lg"></div>
+                  <img
+                    src="/placeholder.png"
+                    alt={`${job.employer_name} logo`}
+                    className="w-[60px] h-[60px] rounded-lg"
+                  />
                 )}
               </div>
 
@@ -90,7 +94,7 @@ const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
             <p className="mb-2">
               {selectedJob.job_city}, {selectedJob.job_state}
             </p>
-            <p className="mb-4">
+            <div className="mb-4">
               {selectedJob.job_description
                 .split("\n")
                 .map((paragraph, index) => (
@@ -98,7 +102,7 @@ const JobResults: React.FC<JobResultsProps> = ({ results = [] }) => {
                     {paragraph}
                   </p>
                 ))}
-            </p>
+            </div>
             {selectedJob.job_min_salary && selectedJob.job_max_salary && (
               <p className="mb-4">
                 ${selectedJob.job_min_salary} - ${selectedJob.job_max_salary}{" "}

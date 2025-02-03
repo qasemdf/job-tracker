@@ -54,6 +54,48 @@ const JobSearchPage = () => {
       "nurse",
       "medical technician",
       "EKG technician",
+      "Electrician",
+      "Data Analyst",
+      "Mechanical Engineer",
+      "Elementary School Teacher",
+      "Chef",
+      "Accountant",
+      "Sales Representative",
+      "Carpenter",
+      "Physician",
+      "Photographer",
+      "Human Resources Specialist",
+      "Content Writer",
+      "Cybersecurity Analyst",
+      "Event Planner",
+      "Architect",
+      "Flight Attendant",
+      "Veterinarian",
+      "Customer Service Representative",
+      "Real Estate Agent",
+      "Plumber",
+      "Graphic Designer",
+      "Barista",
+      "Welder",
+      "Fitness Trainer",
+      "Film Editor",
+      "Biologist",
+      "Librarian",
+      "Truck Driver",
+      "Pilot",
+      "Tailor",
+      "UX Designer",
+      "Game Developer",
+      "Marine Biologist",
+      "Forensic Scientist",
+      "SEO Specialist",
+      "Speech Therapist",
+      "Park Ranger",
+      "Dog Trainer",
+      "Robotics Engineer",
+      "Interpreter/Translator",
+      "Actuary",
+      "Film Editor",
     ];
 
     let randomNum = Math.floor(Math.random() * jobs.length);
@@ -88,29 +130,6 @@ const JobSearchPage = () => {
     return () => unsubscribe();
   }, [router]);
 
-  useEffect(() => {
-    const fetchInitialJobs = async () => {
-      try {
-        setSearchLoading(true);
-        const initialResults = await searchJobs({
-          query: randomJob,
-          page: 1,
-          num_pages: 1,
-          date_posted: "all",
-          remote_jobs_only: false,
-        });
-        setResults(initialResults);
-        setError("");
-      } catch (error) {
-        console.error("Could not initialize jobs:", error);
-        setError("Failed to load jobs. Please try again.");
-      } finally {
-        setSearchLoading(false);
-      }
-    };
-    fetchInitialJobs();
-  }, []);
-
   const fetchJobs = async (newPage: number) => {
     setSearchLoading(true);
     try {
@@ -132,6 +151,29 @@ const JobSearchPage = () => {
       setSearchLoading(false);
     }
   };
+
+  useEffect(() => {
+    const fetchInitialJobs = async () => {
+      try {
+        setSearchLoading(true);
+        const initialResults = await searchJobs({
+          query: randomJob,
+          page: 1,
+          num_pages: 1,
+          date_posted: "all",
+          remote_jobs_only: false,
+        });
+        setResults(initialResults);
+        setError("");
+      } catch (error) {
+        console.error("Could not initialize jobs:", error);
+        setError("Failed to load jobs. Please try again.");
+      } finally {
+        setSearchLoading(false);
+      }
+    };
+    fetchInitialJobs();
+  }, []); //put the variables in this dependency array
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

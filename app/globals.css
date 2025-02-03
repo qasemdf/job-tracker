@@ -17,3 +17,9 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #ecdfcc;
 }
+
+@media (max-width: 1100px) {
+  #responsive {
+    flex-direction: column;
+  }
+}
