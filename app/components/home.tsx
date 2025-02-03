@@ -75,10 +75,12 @@ function Home() {
       <div className="flex flex-col w-full p-12 gap-60">
         <TextCard
           title="Search for the Jobs You Care About"
+          img="/search.png"
           description="Finding your dream job begins with discovering roles that align with your passions and goals. Our platform allows you to easily refine your search by interests, skills, and desired industries. Whether you're aiming for your next big career move or exploring new opportunities, we make it simple to find the job that's right for you."
         />
         <TextCard
           title="Track the Important Jobs and Stay Organized in Your Search"
+          img="/tracker.png"
           description="Keep track of the jobs that matter most to you with ease. Our platform helps you save and organize job listings, so you can revisit them anytime. Whether you're comparing opportunities, preparing applications, or monitoring deadlines, staying organized ensures you never miss out on your next big break.git ch"
         />
       </div>

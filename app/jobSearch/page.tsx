@@ -130,29 +130,6 @@ const JobSearchPage = () => {
     return () => unsubscribe();
   }, [router]);
 
-  useEffect(() => {
-    const fetchInitialJobs = async () => {
-      try {
-        setSearchLoading(true);
-        const initialResults = await searchJobs({
-          query: randomJob,
-          page: 1,
-          num_pages: 1,
-          date_posted: "all",
-          remote_jobs_only: false,
-        });
-        setResults(initialResults);
-        setError("");
-      } catch (error) {
-        console.error("Could not initialize jobs:", error);
-        setError("Failed to load jobs. Please try again.");
-      } finally {
-        setSearchLoading(false);
-      }
-    };
-    fetchInitialJobs();
-  }, []);
-
   const fetchJobs = async (newPage: number) => {
     setSearchLoading(true);
     try {
@@ -174,6 +151,29 @@ const JobSearchPage = () => {
       setSearchLoading(false);
     }
   };
+
+  useEffect(() => {
+    const fetchInitialJobs = async () => {
+      try {
+        setSearchLoading(true);
+        const initialResults = await searchJobs({
+          query: randomJob,
+          page: 1,
+          num_pages: 1,
+          date_posted: "all",
+          remote_jobs_only: false,
+        });
+        setResults(initialResults);
+        setError("");
+      } catch (error) {
+        console.error("Could not initialize jobs:", error);
+        setError("Failed to load jobs. Please try again.");
+      } finally {
+        setSearchLoading(false);
+      }
+    };
+    fetchInitialJobs();
+  }, []); //put the variables in this dependency array
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

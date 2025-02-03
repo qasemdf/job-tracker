@@ -14,6 +14,8 @@ import {
   updateDoc,
 } from "firebase/firestore";
 
+import { Reveal } from "../helper components/Reveal";
+
 interface JobApplication {
   id: string;
   companyName: string;
@@ -206,42 +208,47 @@ const TrackedApplicationsPage: React.FC = () => {
             className="w-full p-2 border rounded dark:bg-[#3C3D37] bg-[#3E5879] dark:text-[#ECDFCC] text-[#F5EFE7] dark:placeholder-[#ECDFCC] placeholder-[#F5EFE7]"
           />
         </div>
-
-        <div className="container mb-8">
-          {filteredApplications.map((app) => (
-            <div
-              key={app.id}
-              className="bg-[#3E5879] dark:bg-[#3C3D37] mx-auto max-w-[700px] p-4 rounded shadow mb-4 flex justify-between"
-            >
-              <div>
-                <h2 className="text-lg font-bold text-[#F5EFE7] dark:text-[#ECDFCC]">
-                  {app.companyName}
-                </h2>
-                <p className="dark:text-[#ECDFCC] text-[#F5EFE7]">
-                  {app.position}
-                </p>
-                <p className="dark:text-[#ECDFCC] text-[#F5EFE7]">
-                  {app.description}
-                </p>
-                <p className="text-[#ecdfcc69]">{app.applicationDate}</p>
+        <Reveal>
+          <div className="container mb-8">
+            {filteredApplications.map((app) => (
+              <div
+                key={app.id}
+                className="bg-[#3E5879] dark:bg-[#3C3D37] mx-auto max-w-[700px] p-4 rounded shadow mb-4 flex justify-between"
+              >
+                <div>
+                  <h2 className="text-lg font-bold text-[#F5EFE7] dark:text-[#ECDFCC]">
+                    {app.companyName}
+                  </h2>
+                  <p className="dark:text-[#ECDFCC] text-[#F5EFE7]">
+                    {app.position}
+                  </p>
+                  <div className="dark:text-[#ECDFCC] text-[#F5EFE7]">
+                    {app.description.split("\n").map((paragraph, index) => (
+                      <p key={index} className="mb-4">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                  <p className="text-[#ecdfcc69]">{app.applicationDate}</p>
+                </div>
+                <div className="flex flex-col space-y-2">
+                  <button
+                    onClick={() => handleDeleteApplication(app.id)}
+                    className="w-32 h-12 dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] rounded-lg font-medium hover:bg-[#d8c4b6b4] focus:ring focus:ring-[#1b1b1b]"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={() => handleEditApplication(app)}
+                    className="w-32 h-12 dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] rounded-lg font-medium hover:bg-[#d8c4b6b4] focus:ring focus:ring-[#1b1b1b]"
+                  >
+                    Edit
+                  </button>
+                </div>
               </div>
-              <div className="flex flex-col space-y-2">
-                <button
-                  onClick={() => handleDeleteApplication(app.id)}
-                  className="w-32 h-12 dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] rounded-lg font-medium hover:bg-[#d8c4b6b4] focus:ring focus:ring-[#1b1b1b]"
-                >
-                  Delete
-                </button>
-                <button
-                  onClick={() => handleEditApplication(app)}
-                  className="w-32 h-12 dark:bg-[#697565] bg-[#D8C4B6] dark:text-[#ECDFCC] text-[#F5EFE7] rounded-lg font-medium hover:bg-[#d8c4b6b4] focus:ring focus:ring-[#1b1b1b]"
-                >
-                  Edit
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
         <div className="container flex flex-col justify-center items-center">
           <h2 className="text-2xl font-bold mb-4 dark:text-[#ECDFCC] text-[#F5EFE7]">
             {editingApplication ? "Edit Application" : "Add New Application"}

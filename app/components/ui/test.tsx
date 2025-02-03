@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
-export const TestComponent = (props) => (
+export const TestComponent = (props: any) => (
   <motion.div
     className="container flex flex-col justify-between max-w-[620px] h-96 rounded-lg dark:bg-[#191A19] bg-[#27374D]"
-    initial={{ opacity: 0, translateY: 40 }}
+    initial={{ opacity: 0, translateY: 70 }}
     animate={{ opacity: 1, translateY: 0 }}
-    transition={{ duration: 0.8 }}
+    transition={{ duration: 0.5 }}
   >
     <div className="flex p-3 items-center">
       <img
