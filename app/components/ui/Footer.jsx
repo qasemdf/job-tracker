@@ -4,7 +4,7 @@ function Footer() {
       <div className="flex flex-col gap-2">
         <h1 className="text-[#F5EFE7] dark:text-[#ECDFCC] text-2xl">PORTAL</h1>
         <p className="text-[#fbfbfb65]">all rights reserved</p>
-        <p className="text-[#fbfbfb65]">Tracker Me 2024</p>
+        <p className="text-[#fbfbfb65]">Portal 2024</p>
       </div>
       <div className="flex flex-col gap-2">
         <h2 className="text-[#F5EFE7] dark:text-[#ECDFCC] mb-4">Company</h2>
