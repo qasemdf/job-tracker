@@ -8,7 +8,7 @@ export function ScrollContainerComponent() {
     <div className="flex flex-col overflow-hidden w-full h-[1060px] max-w-[1500px]">
       <ContainerScroll titleComponent={<></>}>
         <Image
-          src={`/linear.webp`}
+          src={`/perfecto1.png`}
           alt="hero"
           height={720}
           width={1400}
